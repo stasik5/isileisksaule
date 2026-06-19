@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Įsileisk Saulę — profesionalios langų valymo paslaugos Vilniuje. Daugiau nei 10 metų patirtis. Tel: +370 614 58748.">
+<title>Įsileisk Saulę — Langų valymo paslaugos Vilniuje</title>
+<style>
+/* ============ RESET & BASE ============ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#FFB800;
+  --gold-light:#FFD93D;
+  --gold-soft:#FFF3D6;
+  --blue:#4FC3F7;
+  --blue-light:#81D4FA;
+  --blue-soft:#E1F5FE;
+  --white:#FFFFFF;
+  --off-white:#FAFAFA;
+  --dark:#1A1A2E;
+  --text:#333;
+  --muted:#6B7280;
+  --shadow:0 10px 40px rgba(26,26,46,.08);
+  --shadow-lg:0 20px 60px rgba(26,26,46,.12);
+  --radius:20px;
+  --radius-sm:12px;
+}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);
+  background:var(--white);
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{max-width:100%;display:block}
+.container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
+section{padding:90px 0;position:relative}
+h1,h2,h3,h4{color:var(--dark);line-height:1.2;font-weight:800;letter-spacing:-.02em}
+.section-title{font-size:clamp(1.9rem,4.5vw,2.8rem);text-align:center;margin-bottom:14px}
+.section-subtitle{text-align:center;color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 56px}
+.gold-text{color:var(--gold)}
+.blue-text{color:var(--blue)}
+
+/* ============ HEADER ============ */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,184,0,.15);
+  transition:all .3s ease;
+}
+header.scrolled{box-shadow:0 4px 20px rgba(26,26,46,.06)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.25rem;color:var(--dark)}
+.logo-sun{width:38px;height:38px;flex-shrink:0}
+.logo-sun .core{animation:rotate 20s linear infinite;transform-origin:center}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-weight:600;font-size:.95rem;color:var(--text);transition:color .2s;position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--gold);transition:width .25s}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after{width:100%}
+.header-phone{
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  color:#fff;font-weight:700;padding:10px 20px;border-radius:50px;
+  font-size:.92rem;transition:transform .2s,box-shadow .2s;white-space:nowrap;
+  box-shadow:0 4px 14px rgba(255,184,0,.35);
+}
+.header-phone:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,184,0,.45)}
+.burger{display:none;background:none;border:none;cursor:pointer;font-size:1.6rem;color:var(--dark)}
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:15px 30px;border-radius:50px;font-weight:700;font-size:1.02rem;
+  cursor:pointer;transition:all .25s ease;border:none;text-align:center;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  color:#fff;box-shadow:0 8px 24px rgba(255,184,0,.4);
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,184,0,.5)}
+.btn-whatsapp{
+  background:#25D366;color:#fff;box-shadow:0 8px 24px rgba(37,211,102,.35);
+}
+.btn-whatsapp:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(37,211,102,.45)}
+.btn-outline{
+  background:rgba(255,255,255,.2);color:#fff;border:2px solid rgba(255,255,255,.7);
+  backdrop-filter:blur(4px);
+}
+.btn-outline:hover{background:rgba(255,255,255,.95);color:var(--dark)}
+
+/* ============ HERO ============ */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#E1F5FE 0%,#FFF8E1 45%,#FFF3D6 100%);
+  padding:110px 0 70px;
+}
+.sunburst{
+  position:absolute;top:-180px;right:-180px;width:780px;height:780px;
+  z-index:0;opacity:.85;pointer-events:none;
+}
+.sunburst-rays{animation:rotate 80s linear infinite;transform-origin:center}
+.sun-particles{position:absolute;inset:0;overflow:hidden;z-index:0;pointer-events:none}
+.sun-particles span{
+  position:absolute;display:block;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,217,61,.5),transparent 70%);
+  animation:floatUp linear infinite;
+}
+@keyframes rotate{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes floatUp{
+  0%{transform:translateY(100vh) scale(.4);opacity:0}
+  10%{opacity:.7}
+  90%{opacity:.5}
+  100%{transform:translateY(-20vh) scale(1);opacity:0}
+}
+.hero-content{position:relative;z-index:2;max-width:680px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.7);backdrop-filter:blur(8px);
+  padding:8px 18px;border-radius:50px;font-weight:700;font-size:.9rem;
+  color:var(--gold);margin-bottom:24px;border:1px solid rgba(255,184,0,.3);
+  box-shadow:0 4px 16px rgba(255,184,0,.12);
+}
+.hero-badge .dot{width:8px;height:8px;background:var(--gold);border-radius:50%;animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.3)}}
+.hero h1{
+  font-size:clamp(2.3rem,6vw,4rem);margin-bottom:22px;
+  text-shadow:0 2px 30px rgba(255,255,255,.5);
+}
+.hero h1 .highlight{
+  background:linear-gradient(120deg,var(--gold),#FF9800);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  position:relative;
+}
+.hero p.lead{
+  font-size:clamp(1.05rem,2vw,1.25rem);color:#3a3a4e;
+  margin-bottom:34px;max-width:560px;font-weight:500;
+}
+.hero-cta{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:40px}
+.hero-trust{display:flex;flex-wrap:wrap;gap:22px;align-items:center}
+.hero-trust div{display:flex;align-items:center;gap:8px;font-size:.92rem;font-weight:600;color:#444}
+.hero-trust .check{color:#25D366;font-weight:900;font-size:1.1rem}
+
+/* glass sparkle decoration */
+.hero-glass{
+  position:absolute;left:-100px;bottom:-100px;width:420px;height:420px;
+  border-radius:50%;z-index:0;opacity:.4;
+  background:radial-gradient(circle at 30% 30%,rgba(79,195,247,.4),transparent 65%);
+  filter:blur(8px);animation:drift 12s ease-in-out infinite;
+}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-25px)}}
+
+/* ============ STATS BAR ============ */
+.stats{
+  background:linear-gradient(135deg,var(--dark),#25254a);
+  padding:50px 0;position:relative;overflow:hidden;
+}
+.stats::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--blue));
+}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+.stat-num{
+  font-size:clamp(2rem,4vw,2.8rem);font-weight:900;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  line-height:1;margin-bottom:8px;
+}
+.stat-label{color:rgba(255,255,255,.75);font-size:.95rem;font-weight:500}
+
+/* ============ SERVICES ============ */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.service-card{
+  background:#fff;border-radius:var(--radius);padding:38px 30px;
+  box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s;
+  border:1px solid rgba(0,0,0,.04);position:relative;overflow:hidden;
+}
+.service-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:5px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-light));
+  transform:scaleX(0);transform-origin:left;transition:transform .35s;
+}
+.service-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+.service-card:hover::before{transform:scaleX(1)}
+.service-card.featured{border:2px solid var(--gold);background:linear-gradient(180deg,#FFFDF5,#fff)}
+.service-card.featured::before{transform:scaleX(1)}
+.badge-pop{
+  position:absolute;top:18px;right:18px;background:var(--gold);color:#fff;
+  font-size:.72rem;font-weight:800;padding:5px 12px;border-radius:50px;
+  text-transform:uppercase;letter-spacing:.04em;
+}
+.service-icon{
+  width:70px;height:70px;border-radius:18px;display:flex;align-items:center;justify-content:center;
+  font-size:2rem;margin-bottom:22px;
+  background:linear-gradient(135deg,var(--gold-soft),var(--blue-soft));
+}
+.service-card h3{font-size:1.35rem;margin-bottom:12px}
+.service-card p{color:var(--muted);margin-bottom:18px;font-size:.97rem}
+.service-price{font-weight:800;color:var(--gold);font-size:1.1rem;margin-bottom:18px}
+.service-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.service-list li{display:flex;align-items:flex-start;gap:9px;font-size:.92rem;color:#444}
+.service-list li::before{content:"✦";color:var(--gold);font-weight:700;flex-shrink:0}
+
+/* ============ PRICING ============ */
+.pricing{background:linear-gradient(180deg,var(--off-white),#fff)}
+.pricing-wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:start}
+.price-table{
+  background:#fff;border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);
+}
+.price-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 26px;border-bottom:1px solid #f0f0f0;transition:background .2s;
+}
+.price-row:last-child{border-bottom:none}
+.price-row:hover{background:var(--gold-soft)}
+.price-row .name{font-weight:600;color:var(--dark)}
+.price-row .name small{display:block;color:var(--muted);font-weight:400;font-size:.83rem;margin-top:2px}
+.price-row .price{font-weight:800;color:var(--gold);font-size:1.15rem;white-space:nowrap}
+.price-row.featured-row{background:linear-gradient(90deg,#FFFDF5,#fff)}
+.price-row .price.range{color:var(--blue)}
+.price-note{
+  margin-top:20px;background:var(--blue-soft);border-radius:var(--radius-sm);
+  padding:18px 24px;display:flex;gap:12px;align-items:flex-start;font-size:.92rem;color:#2a4a5a;
+}
+.price-note .icon{font-size:1.3rem;flex-shrink:0}
+.price-card{
+  background:linear-gradient(150deg,var(--dark),#2c2c5a);color:#fff;
+  border-radius:var(--radius);padding:40px 32px;box-shadow:var(--shadow-lg);
+  position:relative;overflow:hidden;
+}
+.price-card::before{
+  content:"";position:absolute;top:-60px;right:-60px;width:200px;height:200px;
+  border-radius:50%;background:radial-gradient(circle,rgba(255,184,0,.3),transparent 70%);
+}
+.price-card h3{color:#fff;font-size:1.5rem;margin-bottom:8px;position:relative}
+.price-card .sub{color:rgba(255,255,255,.7);margin-bottom:24px;font-size:.95rem;position:relative}
+.price-card .big-price{
+  font-size:3rem;font-weight:900;line-height:1;margin-bottom:4px;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent;position:relative;
+}
+.price-card .per{color:rgba(255,255,255,.7);font-size:.9rem;margin-bottom:24px;position:relative}
+.price-card ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:28px;position:relative}
+.price-card ul li{display:flex;align-items:flex-start;gap:10px;font-size:.94rem;color:rgba(255,255,255,.92)}
+.price-card ul li::before{content:"✓";color:var(--gold-light);font-weight:900;flex-shrink:0}
+.price-card .btn{width:100%;position:relative}
+
+/* ============ PROCESS ============ */
+.process{background:linear-gradient(180deg,#fff,var(--blue-soft))}
+.process-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;position:relative}
+.process-steps::before{
+  content:"";position:absolute;top:38px;left:10%;right:10%;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--blue));z-index:0;opacity:.4;
+}
+.step{text-align:center;position:relative;z-index:1}
+.step-circle{
+  width:76px;height:76px;border-radius:50%;margin:0 auto 18px;
+  display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:900;
+  color:#fff;background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  box-shadow:0 8px 22px rgba(255,184,0,.35);
+  border:5px solid #fff;transition:transform .3s;
+}
+.step:nth-child(even) .step-circle{background:linear-gradient(135deg,var(--blue),var(--blue-light));box-shadow:0 8px 22px rgba(79,195,247,.35)}
+.step:hover .step-circle{transform:scale(1.1) translateY(-4px)}
+.step h4{font-size:1.05rem;margin-bottom:6px}
+.step p{font-size:.85rem;color:var(--muted);padding:0 4px}
+
+/* ============ WHY IT MATTERS ============ */
+.why{background:linear-gradient(135deg,var(--gold-soft),#fff)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.why-visual{
+  position:relative;border-radius:var(--radius);overflow:hidden;
+  background:linear-gradient(135deg,#2a2a4a,#1A1A2E);min-height:380px;
+  padding:40px;display:flex;flex-direction:column;justify-content:center;color:#fff;
+  box-shadow:var(--shadow-lg);
+}
+.why-visual::before{
+  content:"";position:absolute;top:-40px;right:-40px;width:220px;height:220px;
+  border-radius:50%;background:radial-gradient(circle,rgba(255,184,0,.45),transparent 70%);
+}
+.split-window{display:flex;gap:14px;margin-bottom:24px;position:relative}
+.window-half{
+  flex:1;aspect-ratio:3/4;border-radius:12px;padding:18px;display:flex;flex-direction:column;justify-content:flex-end;
+  font-weight:700;font-size:.9rem;position:relative;overflow:hidden;
+}
+.window-half.dirty{background:linear-gradient(135deg,#5a5a4a,#3a3a2a)}
+.window-half.dirty::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 8px,rgba(80,70,40,.3) 8px,rgba(80,70,40,.3) 16px)}
+.window-half.clean{background:linear-gradient(135deg,rgba(129,212,250,.4),rgba(79,195,247,.25));border:2px solid rgba(129,212,250,.5)}
+.window-half.clean::before{content:"✨";position:absolute;top:10px;right:12px;font-size:1.4rem}
+.window-half span{position:relative;z-index:2}
+.why-content h2{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:20px;text-align:left}
+.why-content p{color:#444;margin-bottom:18px;font-size:1.02rem}
+.why-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:24px}
+.why-list li{display:flex;gap:13px;align-items:flex-start;font-weight:500;color:#333}
+.why-list .ico{width:34px;height:34px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:var(--gold-soft)}
+
+/* ============ TESTIMONIALS ============ */
+.testimonials{background:var(--off-white)}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.test-card{
+  background:#fff;border-radius:var(--radius);padding:34px 28px;
+  box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s;
+  border:1px solid rgba(0,0,0,.04);display:flex;flex-direction:column;
+}
+.test-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.stars{color:var(--gold);font-size:1.15rem;margin-bottom:16px;letter-spacing:2px}
+.test-text{color:#444;font-size:.98rem;margin-bottom:22px;font-style:italic;flex-grow:1}
+.test-author{display:flex;align-items:center;gap:13px;border-top:1px solid #f0f0f0;padding-top:18px}
+.test-avatar{
+  width:46px;height:46px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:1.1rem;
+}
+.test-info .name{font-weight:700;color:var(--dark);font-size:.96rem}
+.test-info .meta{color:var(--muted);font-size:.82rem}
+
+/* ============ CONTACT CTA ============ */
+.contact{
+  background:linear-gradient(135deg,var(--gold),#FF9800);
+  position:relative;overflow:hidden;text-align:center;color:#fff;
+}
+.contact::before{
+  content:"";position:absolute;top:-200px;left:50%;transform:translateX(-50%);
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.2),transparent 70%);
+}
+.contact .container{position:relative;z-index:2}
+.contact h2{color:#fff;font-size:clamp(2rem,5vw,3.2rem);margin-bottom:16px}
+.contact p.lead{color:rgba(255,255,255,.95);font-size:1.15rem;margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:900px;margin:0 auto 40px}
+.contact-card{
+  background:rgba(255,255,255,.15);backdrop-filter:blur(10px);
+  border-radius:var(--radius);padding:28px 20px;border:1px solid rgba(255,255,255,.25);
+  transition:transform .3s,background .3s;
+}
+.contact-card:hover{transform:translateY(-5px);background:rgba(255,255,255,.25)}
+.contact-card .ico{font-size:2.2rem;margin-bottom:12px}
+.contact-card .label{font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;opacity:.85;margin-bottom:6px;font-weight:600}
+.contact-card .val{font-size:1.1rem;font-weight:700;word-break:break-word}
+.contact-cta-row{display:flex;flex-wrap:wrap;gap:16px;justify-content:center}
+.contact .btn-whatsapp{background:#25D366}
+.contact .btn-outline{color:#fff;border-color:rgba(255,255,255,.8)}
+.contact .btn-outline:hover{background:#fff;color:var(--gold)}
+
+/* ============ FOOTER ============ */
+footer{background:var(--dark);color:rgba(255,255,255,.8);padding:60px 0 28px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:16px;color:#fff;font-weight:800;font-size:1.2rem}
+.footer-brand .logo-sun{width:34px;height:34px}
+.footer-about{font-size:.92rem;color:rgba(255,255,255,.6);max-width:340px}
+footer h4{color:#fff;font-size:1.05rem;margin-bottom:16px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a,.footer-links span{color:rgba(255,255,255,.65);font-size:.92rem;transition:color .2s}
+.footer-links a:hover{color:var(--gold-light)}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);padding-top:24px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  font-size:.85rem;color:rgba(255,255,255,.5);
+}
+.footer-bottom a{color:rgba(255,255,255,.7)}
+.footer-bottom a:hover{color:var(--gold-light)}
+
+/* ============ ANIMATIONS ============ */
+.fade-in{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in.delay-1{transition-delay:.1s}
+.fade-in.delay-2{transition-delay:.2s}
+.fade-in.delay-3{transition-delay:.3s}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:900px){
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:36px}
+  .services-grid,.test-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto}
+  .pricing-wrap{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr;gap:34px}
+  .process-steps{grid-template-columns:repeat(2,1fr);gap:30px}
+  .process-steps::before{display:none}
+  .contact-grid{grid-template-columns:1fr;max-width:420px}
+  .footer-grid{grid-template-columns:1fr;gap:30px}
+  .nav-links{
+    position:fixed;top:70px;left:0;right:0;
+    background:rgba(255,255,255,.98);backdrop-filter:blur(12px);
+    flex-direction:column;padding:20px;gap:6px;
+    transform:translateY(-150%);transition:transform .35s ease;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);border-bottom:1px solid rgba(255,184,0,.15);
+  }
+  .nav-links.open{transform:translateY(0)}
+  .nav-links a{padding:12px 16px;border-radius:10px;display:block}
+  .nav-links a:hover{background:var(--gold-soft)}
+  .nav-links a::after{display:none}
+  .burger{display:block}
+  .header-phone{display:none}
+  section{padding:64px 0}
+}
+@media(max-width:560px){
+  .process-steps{grid-template-columns:1fr;max-width:340px;margin:0 auto}
+  .step-circle{width:64px;height:64px;font-size:1.5px}
+  .hero-cta{flex-direction:column}
+  .hero-cta .btn{width:100%}
+  .hero-trust{gap:14px}
+  .price-row{flex-direction:column;align-items:flex-start;gap:6px}
+  .price-row .price{align-self:flex-end;margin-top:-22px}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+
+/* reduced motion */
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .fade-in{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="header">
+  <div class="container nav-inner">
+    <a href="#hero" class="logo" aria-label="Įsileisk Saulę — pradžia">
+      <svg class="logo-sun" viewBox="0 0 100 100" aria-hidden="true">
+        <g class="core">
+          <g stroke="#FFB800" stroke-width="7" stroke-linecap="round">
+            <line x1="50" y1="6" x2="50" y2="22"/>
+            <line x1="50" y1="78" x2="50" y2="94"/>
+            <line x1="6" y1="50" x2="22" y2="50"/>
+            <line x1="78" y1="50" x2="94" y2="50"/>
+            <line x1="18" y1="18" x2="29" y2="29"/>
+            <line x1="71" y1="71" x2="82" y2="82"/>
+            <line x1="82" y1="18" x2="71" y2="29"/>
+            <line x1="29" y1="71" x2="18" y2="82"/>
+          </g>
+        </g>
+        <circle cx="50" cy="50" r="20" fill="#FFB800"/>
+        <circle cx="50" cy="50" r="14" fill="#FFD93D"/>
+      </svg>
+      <span>Įsileisk Saulę</span>
+    </a>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#paslaugos">Paslaugos</a></li>
+        <li><a href="#kainos">Kainos</a></li>
+        <li><a href="#procesas">Kaip dirbame</a></li>
+        <li><a href="#atsiliepimai">Atsiliepimai</a></li>
+        <li><a href="#kontaktai">Kontaktai</a></li>
+      </ul>
+    </nav>
+    <a href="tel:+37061458748" class="header-phone">📞 +370 614 58748</a>
+    <button class="burger" id="burger" aria-label="Meniu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <!-- animated sunburst -->
+  <svg class="sunburst" viewBox="0 0 400 400" aria-hidden="true">
+    <defs>
+      <radialGradient id="sunGrad" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#FFD93D" stop-opacity="0.7"/>
+        <stop offset="40%" stop-color="#FFB800" stop-opacity="0.3"/>
+        <stop offset="100%" stop-color="#FFB800" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <g class="sunburst-rays">
+      <g fill="none" stroke="#FFD93D" stroke-width="3" stroke-linecap="round" opacity="0.5">
+        <!-- 24 rays -->
+        <line x1="200" y1="200" x2="200" y2="10"/>
+        <line x1="200" y1="200" x2="200" y2="390"/>
+        <line x1="200" y1="200" x2="10" y2="200"/>
+        <line x1="200" y1="200" x2="390" y2="200"/>
+        <line x1="200" y1="200" x2="66" y2="66"/>
+        <line x1="200" y1="200" x2="334" y2="334"/>
+        <line x1="200" y1="200" x2="334" y2="66"/>
+        <line x1="200" y1="200" x2="66" y2="334"/>
+        <line x1="200" y1="200" x2="120" y2="25"/>
+        <line x1="200" y1="200" x2="280" y2="25"/>
+        <line x1="200" y1="200" x2="120" y2="375"/>
+        <line x1="200" y1="200" x2="280" y2="375"/>
+        <line x1="200" y1="200" x2="25" y2="120"/>
+        <line x1="200" y1="200" x2="25" y2="280"/>
+        <line x1="200" y1="200" x2="375" y2="120"/>
+        <line x1="200" y1="200" x2="375" y2="280"/>
+        <line x1="200" y1="200" x2="90" y2="45"/>
+        <line x1="200" y1="200" x2="310" y2="45"/>
+        <line x1="200" y1="200" x2="90" y2="355"/>
+        <line x1="200" y1="200" x2="310" y2="355"/>
+        <line x1="200" y1="200" x2="45" y2="90"/>
+        <line x1="200" y1="200" x2="45" y2="310"/>
+        <line x1="200" y1="200" x2="355" y2="90"/>
+        <line x1="200" y1="200" x2="355" y2="310"/>
+      </g>
+    </g>
+    <circle cx="200" cy="200" r="130" fill="url(#sunGrad)"/>
+    <circle cx="200" cy="200" r="45" fill="#FFD93D" opacity="0.8"/>
+  </svg>
+  <div class="sun-particles" id="particles"></div>
+  <div class="hero-glass"></div>
+
+  <div class="container hero-content">
+    <div class="hero-badge"><span class="dot"></span> Daugiau nei 10 metų patirties nuo 2014 m.</div>
+    <h1>Įsileisk <span class="highlight">Saulę</span> į Savo Namus</h1>
+    <p class="lead">Profesionalios langų valymo paslaugos Vilniuje. Švarūs, blizgantys langai be dryžių — tegul saulė šviečia per kiekvieną stiklą. Patikimi, mandagūs ir punktualūs specialistai.</p>
+    <div class="hero-cta">
+      <a href="tel:+37061458748" class="btn btn-primary">📞 Skambinti dabar</a>
+      <a href="https://wa.me/37061458748" class="btn btn-whatsapp" target="_blank" rel="noopener">💬 WhatsApp</a>
+    </div>
+    <div class="hero-trust">
+      <div><span class="check">✓</span> Nemokamas įvertinimas</div>
+      <div><span class="check">✓</span> Savo įranga</div>
+      <div><span class="check">✓</span> Paliekame tvarką</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS BAR ============ -->
+<section class="stats" style="padding:48px 0">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="fade-in">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">metų patirtis</div>
+      </div>
+      <div class="fade-in delay-1">
+        <div class="stat-num">1000+</div>
+        <div class="stat-label">išvalytų langų</div>
+      </div>
+      <div class="fade-in delay-2">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">patenkintų klientų</div>
+      </div>
+      <div class="fade-in delay-3">
+        <div class="stat-num">4.9/5</div>
+        <div class="stat-label">įvertinimas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="paslaugos">
+  <div class="container">
+    <h2 class="section-title fade-in">Mūsų Paslaugos</h2>
+    <p class="section-subtitle fade-in">Visapusiški langų valymo sprendimai — nuo įprastos priežiūros iki sudėtingų atvejų po statybos.</p>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon">🪟</div>
+        <h3>Profilaktinis langų valymas</h3>
+        <p>Reguliarus langų valymas, rekomenduojamas kartą per metus. Palaiko stiklo švarą ir prailgina jo gyvavimo laiką.</p>
+        <div class="service-price">nuo 4–16 EUR / stiklas</div>
+        <ul class="service-list">
+          <li>Abiejų pusių valymas</li>
+          <li>Rėmų ir palangių valymas</li>
+          <li>Be dryžių garantija</li>
+          <li>Tinkamas namams ir biurams</li>
+        </ul>
+      </div>
+      <div class="service-card featured fade-in delay-1">
+        <span class="badge-pop">Populiaru</span>
+        <div class="service-icon">🏗️</div>
+        <h3>Postatybinis langų valymas</h3>
+        <p>Pilnas valymas po statybos ar remonto darbų. Pašaliname cemento liekanas, dažų taškus, klijus ir apsaugines plėveles.</p>
+        <div class="service-price">iki 3× brangiau už profilaktinį</div>
+        <ul class="service-list">
+          <li>Statybinių teršalų šalinimas</li>
+          <li>Daugkartinis valymas</li>
+          <li>Saugūs tirpikliai</li>
+          <li>Paruošta įsikraustymui</li>
+        </ul>
+      </div>
+      <div class="service-card fade-in delay-2">
+        <div class="service-icon">✨</div>
+        <h3>Specializuotas valymas</h3>
+        <p>Sudėtingi atvejai: lipdukų ir klijų šalinimas, laiptinių langai, komercinės patalpos ir dideli vitrinų stiklai.</p>
+        <div class="service-price">individualus įkainojimas</div>
+        <ul class="service-list">
+          <li>Lipdukų šalinimas</li>
+          <li>Aukštos laiptinės</li>
+          <li>Komercinės vitrinos</li>
+          <li>Kalkių šalinimas (papildomai)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="pricing" id="kainos">
+  <div class="container">
+    <h2 class="section-title fade-in">Kainos</h2>
+    <p class="section-subtitle fade-in">Skaidrus įkainojimas pagal stiklo dydį. Galutinė kaina priklauso nuo langų dydžio, kiekio ir būklės.</p>
+    <div class="pricing-wrap">
+      <div class="fade-in">
+        <div class="price-table">
+          <div class="price-row featured-row">
+            <div class="name">Bazinis įkainis<small>Abi stiklo pusės išvalomos</small></div>
+            <div class="price range">4–16 EUR</div>
+          </div>
+          <div class="price-row">
+            <div class="name">Siauras vonios langelis<small>Mažas, siauras stiklas</small></div>
+            <div class="price">4 EUR</div>
+          </div>
+          <div class="price-row">
+            <div class="name">Standartinis virtuvės langas<small>Įprastas gyvenamojo būsto langas</small></div>
+            <div class="price">8 EUR</div>
+          </div>
+          <div class="price-row">
+            <div class="name">Didelis vitrinos stiklas<small>Grindo iki lubų, komercinis</small></div>
+            <div class="price">16 EUR</div>
+          </div>
+          <div class="price-row">
+            <div class="name">Dideli plotai (400 m²+)<small>Įkainojama pagal kvadratinius metrus</small></div>
+            <div class="price range">pagal m²</div>
+          </div>
+          <div class="price-row">
+            <div class="name">Kalkių šalinimas<small>Papildoma paslauga prie langų valymo</small></div>
+            <div class="price range">10–30 EUR</div>
+          </div>
+        </div>
+        <div class="price-note">
+          <span class="icon">ℹ️</span>
+          <span><strong>Minimalus užsakymas — 50 EUR.</strong> Galutinę kainą patvirtinsime apžiūrėję langus vietoje. Skambinkite arba rašykite nemokamam įvertinimui!</span>
+        </div>
+      </div>
+      <div class="price-card fade-in delay-1">
+        <h3>Nemokamas įvertinimas</h3>
+        <p class="sub">Sužinokite tikslią kainą per kelias minutes</p>
+        <div class="big-price">0 EUR</div>
+        <div class="per">už konsultaciją ir įkainojimą</div>
+        <ul>
+          <li>Atvykstame į vietą nemokamai</li>
+          <li>Įvertiname langų būklę</li>
+          <li>Pateikiame galutinę kainą</li>
+          <li>Jokio įsipareigojimo</li>
+          <li>Diskretiški ir punktualūs</li>
+        </ul>
+        <a href="tel:+37061458748" class="btn btn-primary">📞 Užsakyti įvertinimą</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="process" id="procesas">
+  <div class="container">
+    <h2 class="section-title fade-in">Kaip Mes Dirbame</h2>
+    <p class="section-subtitle fade-in">Skaidrus ir patikimas procesas — nuo pirmo skambučio iki tolimesnio priminimo.</p>
+    <div class="process-steps">
+      <div class="step fade-in">
+        <div class="step-circle">1</div>
+        <h4>Susitarimas</h4>
+        <p>Suderiname kainą ir darbo datą</p>
+      </div>
+      <div class="step fade-in delay-1">
+        <div class="step-circle">2</div>
+        <h4>Patikra prieš darbą</h4>
+        <p>Apiežiūra su klientu prieš pradedant</p>
+      </div>
+      <div class="step fade-in delay-2">
+        <div class="step-circle">3</div>
+        <h4>Darbo atlikimas</h4>
+        <p>Valome ir pranešame radę problemų</p>
+      </div>
+      <div class="step fade-in delay-3">
+        <div class="step-circle">4</div>
+        <h4>Patikra po darbo</h4>
+        <p>Bendra apžiūra su klientu darbo pabaigoje</p>
+      </div>
+      <div class="step fade-in">
+        <div class="step-circle">5</div>
+        <h4>Priminimas</h4>
+        <p>Po 3–6 mėn. primename apie kitą valymą</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY IT MATTERS ============ -->
+<section class="why" id="kodel-svarbu">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-visual fade-in">
+        <div class="split-window">
+          <div class="window-half dirty"><span>🔒 Nevalytas</span></div>
+          <div class="window-half clean"><span>✨ Išvalytas</span></div>
+        </div>
+        <p style="position:relative;color:rgba(255,255,255,.85);font-size:.95rem">Stiklas yra akyta medžiaga. Laikui bėgant mineralai iš vandens ir oro teršalų įsiskverbia giliai — tai sukelia negrįžtamas dėmes, kurias įprastu būdu nebepavyksta pašalinti.</p>
+      </div>
+      <div class="why-content fade-in delay-1">
+        <h2>Kodėl Reguliarus Valymas <span class="gold-text">Svarbu</span></h2>
+        <p>Nešvarūs langai — tai ne tik estetinė problema. Tai <strong>sveikatos klausimas jūsų stiklui</strong>. Daugelis mano, kad stiklas yra visiškai lygus, tačiau iš tikrųjų jis turi mikroskopinių porų.</p>
+        <p>Per šias poras mineralai, kalkės ir teršalai palaipsniui įsiskverbia į stiklo struktūrą. Susidaro nuolatiniai nuosėdiniai dariniai, kurių vėliau nebegalima pašalinti net profesionaliai valant. Langas tampa drumstas, praranda skaidrumą.</p>
+        <ul class="why-list">
+          <li><span class="ico">🧪</span><span><strong>Akyta stiklo struktūra</strong> — mineralai ir teršalai įsiskverbia giliai</span></li>
+          <li><span class="ico">⚡</span><span><strong>Negrįžtami pažeidimai</strong> — laiku neišvalius atsiranda nuolatinės dėmės</span></li>
+          <li><span class="ico">💰</span><span><strong>Taupote išlaidas</strong> — reguliari priežiūra prailgina langų gyvavimo laiką</span></li>
+          <li><span class="ico">☀️</span><span><strong>Daugiau šviesos</strong> — švarūs langai praleidžia žymiai daugiau saulės spindulių</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials" id="atsiliepimai">
+  <div class="container">
+    <h2 class="section-title fade-in">Ką Sako Klientai</h2>
+    <p class="section-subtitle fade-in">Tūkstančiai išvalytų langų ir šimtai patenkintų klientų visame Vilniuje.</p>
+    <div class="test-grid">
+      <div class="test-card fade-in">
+        <div class="stars">★★★★★</div>
+        <p class="test-text">„Labai mandagūs ir atsakingi darbuotojai. Atsivežė visą savo įrangą, po darbo nepaliko jokios netvarkos — langai blizga tarsi nauji. Džiaugiuosi radusi tokią komandą, dabar kviesiu kasmet.“</p>
+        <div class="test-author">
+          <div class="test-avatar" style="background:linear-gradient(135deg,#FFB800,#FF9800)">R</div>
+          <div class="test-info">
+            <div class="name">Rasa</div>
+            <div class="meta">Privati klientė, Vilnius</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card fade-in delay-1">
+        <div class="stars">★★★★★</div>
+        <p class="test-text">„Darbuojamės jau keletą metų. Valo mūsų vaikų darželio „Vaidilutė“ langus — dideli plotai, aukštos laiptinės, viskas atliekama kokybiškai ir be trikdžių vaikų buvimo metu. Komerciniam klientui — pats geriausias pasirinkimas.“</p>
+        <div class="test-author">
+          <div class="test-avatar" style="background:linear-gradient(135deg,#4FC3F7,#0288D1)">V</div>
+          <div class="test-info">
+            <div class="name">Vaikų darželis „Vaidilutė“</div>
+            <div class="meta">Ilgalaikis komercinis klientas</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card fade-in delay-2">
+        <div class="stars">★★★★★</div>
+        <p class="test-text">„Patiklinau nuolatiniu klientu. Vieną kartą keli langai buvo nepasiekiami dėl aukščio — meistrai sąžiningai pasiūlė grąžinti už juos pinigus. Toks sąžiningumas šiandien retas. Kokybė puiki, kaina teisinga. Rekomenduoju visiems.“</p>
+        <div class="test-author">
+          <div class="test-avatar" style="background:linear-gradient(135deg,#66BB6A,#2E7D32)">A</div>
+          <div class="test-info">
+            <div class="name">Andrius</div>
+            <div class="meta">Nuolatinis klientas, Vilnius</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT CTA ============ -->
+<section class="contact" id="kontaktai">
+  <div class="container">
+    <h2 class="fade-in">Susisiekite Šiandien!</h2>
+    <p class="lead fade-in">Paruoškime jūsų langus saulei. Nemokamas įvertinimas ir sąžiningas įkainojimas — skambinkite arba rašykite jau dabar.</p>
+    <div class="contact-grid">
+      <a href="tel:+37061458748" class="contact-card fade-in">
+        <div class="ico">📞</div>
+        <div class="label">Telefonas</div>
+        <div class="val">+370 614 58748</div>
+      </a>
+      <a href="mailto:info@isileiksaulė.lt" class="contact-card fade-in delay-1">
+        <div class="ico">✉️</div>
+        <div class="label">El. paštas</div>
+        <div class="val">info@isileiksaulė.lt</div>
+      </a>
+      <div class="contact-card fade-in delay-2">
+        <div class="ico">🕐</div>
+        <div class="label">Darbo laikas</div>
+        <div class="val">Pirm.–Penkt.<br>8:00–19:00</div>
+      </div>
+    </div>
+    <div class="contact-cta-row fade-in">
+      <a href="tel:+37061458748" class="btn btn-outline">📞 +370 614 58748</a>
+      <a href="https://wa.me/37061458748" class="btn btn-whatsapp" target="_blank" rel="noopener">💬 Rašyti WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg class="logo-sun" viewBox="0 0 100 100" aria-hidden="true">
+            <g stroke="#FFB800" stroke-width="7" stroke-linecap="round">
+              <line x1="50" y1="6" x2="50" y2="22"/><line x1="50" y1="78" x2="50" y2="94"/>
+              <line x1="6" y1="50" x2="22" y2="50"/><line x1="78" y1="50" x2="94" y2="50"/>
+              <line x1="18" y1="18" x2="29" y2="29"/><line x1="71" y1="71" x2="82" y2="82"/>
+              <line x1="82" y1="18" x2="71" y2="29"/><line x1="29" y1="71" x2="18" y2="82"/>
+            </g>
+            <circle cx="50" cy="50" r="20" fill="#FFB800"/>
+            <circle cx="50" cy="50" r="14" fill="#FFD93D"/>
+          </svg>
+          <span>Įsileisk Saulę</span>
+        </div>
+        <p class="footer-about">Profesionalios langų valymo paslaugos Vilniuje nuo 2014 metų. Švarūs langai, daugiau saulės, geresnė savijauta. Įsileiskite saulę į savo namus.</p>
+      </div>
+      <div>
+        <h4>Navigacija</h4>
+        <ul class="footer-links">
+          <li><a href="#paslaugos">Paslaugos</a></li>
+          <li><a href="#kainos">Kainos</a></li>
+          <li><a href="#procesas">Kaip dirbame</a></li>
+          <li><a href="#atsiliepimai">Atsiliepimai</a></li>
+          <li><a href="#kontaktai">Kontaktai</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontaktai</h4>
+        <ul class="footer-links">
+          <li><a href="tel:+37061458748">📞 +370 614 58748</a></li>
+          <li><a href="https://wa.me/37061458748" target="_blank" rel="noopener">💬 WhatsApp</a></li>
+          <li><a href="mailto:info@isileiksaulė.lt">✉️ info@isileiksaulė.lt</a></li>
+          <li><span>📍 Girulių g. 10, Vilnius</span></li>
+          <li><span>🕐 Pirm.–Penkt. 8:00–19:00</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2014–2026 MB „Atlas solutions“ · Įmonės kodas: 306411787 · Visos teisės saugomos.</span>
+      <span>Prekės ženklas: <strong style="color:#FFD93D">Įsileisk Saulę</strong></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  // === Sticky header shadow ===
+  var header = document.getElementById('header');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 20){ header.classList.add('scrolled'); }
+    else { header.classList.remove('scrolled'); }
+  }, {passive:true});
+
+  // === Mobile burger menu ===
+  var burger = document.getElementById('burger');
+  var navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', function(){
+    var open = navLinks.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.textContent = open ? '✕' : '☰';
+  });
+  // close menu when a link is clicked
+  navLinks.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      navLinks.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      burger.textContent = '☰';
+    });
+  });
+
+  // === Fade-in on scroll (IntersectionObserver) ===
+  var fadeEls = document.querySelectorAll('.fade-in');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    fadeEls.forEach(function(el){ io.observe(el); });
+  } else {
+    // fallback: show everything
+    fadeEls.forEach(function(el){ el.classList.add('visible'); });
+  }
+
+  // === Floating sun particles in hero ===
+  var pContainer = document.getElementById('particles');
+  if(pContainer && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var count = window.innerWidth < 600 ? 10 : 18;
+    for(var i=0; i<count; i++){
+      var s = document.createElement('span');
+      var size = Math.random()*26 + 8;
+      s.style.width = size + 'px';
+      s.style.height = size + 'px';
+      s.style.left = (Math.random()*100) + '%';
+      s.style.animationDuration = (Math.random()*12 + 12) + 's';
+      s.style.animationDelay = (Math.random()*12) + 's';
+      pContainer.appendChild(s);
+    }
+  }
+})();
+</script>
+</body>
+</html>
