@@ -23,10 +23,10 @@ SITE = {
   "home_desc": "Profesionalus langų valymas Vilniuje ir rajone nuo 2014 m. Butai, namai, balkonai, vitrinos, postatybinis valymas, kalkių ir lipdukų šalinimas. Aiški kaina, 5,0 Google.",
   "nav": [("Paslaugos", "/#paslaugos"), ("Kainos", "/#kainos"), ("Darbai", "/#darbai"), ("Atsiliepimai", "/#atsiliepimai"), ("Patarimai", "/papildoma-informacija/")],
   "prices": [
-    ("Profilaktinis langų valymas iš abiejų pusių", "4–16 € / stiklas"),
+    ("Profilaktinis langų valymas iš abiejų pusių", "4–20 € / stiklas"),
     ("&nbsp;&nbsp;· siauras vonios langelis", "4 €"),
     ("&nbsp;&nbsp;· standartinis virtuvės langas daugiabutyje", "8 €"),
-    ("&nbsp;&nbsp;· platus vitrininis stiklas nuo grindų iki lubų", "nuo 20 €"),
+    ("&nbsp;&nbsp;· platus vitrininis stiklas nuo grindų iki lubų", "20 €"),
     ("Postatybinis ir generalinis langų valymas", "~3× profilaktinio kainos"),
     ("Kalkių šalinimas (papildomai)", "10–30 € / stiklas"),
     ("Lipdukų šalinimas, laiptinių langai", "pagal nuotraukas"),
@@ -64,7 +64,7 @@ REVIEWS = [
 ]
 
 FAQ_HOME = [
-  ("Kiek kainuoja langų valymas Vilniuje?", "Profilaktinis valymas iš abiejų pusių kainuoja nuo 4 iki 16 € už stiklą: siauras vonios langelis – 4 €, standartinis virtuvės langas daugiabutyje – 8 €. Minimali užsakymo suma – 60 €."),
+  ("Kiek kainuoja langų valymas Vilniuje?", "Profilaktinis valymas iš abiejų pusių kainuoja nuo 4 iki 20 € už stiklą: siauras vonios langelis – 4 €, standartinis virtuvės langas daugiabutyje – 8 €, platus vitrininis nuo grindų iki lubų – 20 €. Minimali užsakymo suma – 60 €."),
   ("Kaip sužinoti tikslią kainą?", "Paskambinkite – telefonu pasakysime preliminarią kainą „nuo–iki“. Tikslią kainą pasakysime, kai atsiųsite langų nuotraukas per WhatsApp, Viber ar el. paštu."),
   ("Kuo skiriasi profilaktinis ir postatybinis valymas?", "Profilaktinis – kasmetinis valymas, kai langai valomi bent kartą per metus. Postatybinis ar generalinis reikalingas po remonto arba jei langai nevalyti 3 metus ir ilgiau; jis kainuoja apie 3 kartus daugiau."),
   ("Ar kalkių šalinimas įeina į kainą?", "Ne. Kalkių (kieto vandens) dėmių šalinimas užsakomas papildomai – 10–30 € už stiklą, priklausomai nuo užterštumo."),
@@ -82,7 +82,7 @@ SERVICES = [
     card="Įstiklinti balkonai ir lodžijos – stumdomi ir varstomi stiklai iš abiejų pusių.",
     lead="Įstiklinto balkono stiklus iš lauko pusės išsivalyti patiems sunku ir nesaugu. Mes tai padarome greitai – iš abiejų pusių, su savo įranga.",
     image="balkono-langu-valymas-daugiabutyje.webp", image_alt="Išvalyti balkono langai daugiabutyje",
-    price_detail="Kaip ir profilaktinis valymas – <strong>4–16 € už stiklą</strong> iš abiejų pusių. Kalkių šalinimas – papildomai 10–30 € už stiklą.",
+    price_detail="Kaip ir profilaktinis valymas – <strong>4–20 € už stiklą</strong> iš abiejų pusių. Kalkių šalinimas – papildomai 10–30 € už stiklą.",
     body="""<h2>Ką atliekame</h2>
 <ul><li>Balkono ir lodžijos stiklų valymą iš vidaus ir iš lauko pusės.</li><li>Stumdomų ir varstomų balkono rėmų stiklus.</li><li>Kartu galime išvalyti ir buto langus – tuomet vienas atvykimas.</li></ul>
 <h2>Kodėl verta patikėti profesionalams</h2>
@@ -91,7 +91,7 @@ SERVICES = [
 <h2>Kaip užsakyti</h2>
 <p>Atsiųskite balkono nuotrauką per WhatsApp ar Viber – pasakysime tikslią kainą ir pasiūlysime laiką. Arba paskambinkite ir sužinokite preliminarią kainą iš karto.</p>""",
     faq=[("Ar valote balkono stiklus iš lauko pusės?", "Taip, stiklus valome iš abiejų pusių – kaina už stiklą tai ir apima."),
-         ("Kiek kainuoja balkono langų valymas?", "4–16 € už stiklą priklausomai nuo dydžio. Minimali užsakymo suma – 60 €, todėl dažnai verta kartu išsivalyti ir buto langus."),
+         ("Kiek kainuoja balkono langų valymas?", "4–20 € už stiklą priklausomai nuo dydžio. Minimali užsakymo suma – 60 €, todėl dažnai verta kartu išsivalyti ir buto langus."),
          ("Ar reikia būti namuose?", "Taip, reikia prieigos prie balkono. Prieš ir po darbų kartu apžiūrime langus.")]),
 
   _svc(slug="postatybinis-langu-valymas", short="Postatybinis langų valymas",
@@ -101,7 +101,7 @@ SERVICES = [
     card="Po remonto ar statybų: dažų, tinko, putų likučiai. Taip pat seniai nevalyti langai.",
     lead="Po remonto ar statybų ant langų lieka dažų, tinko, silikono, montavimo putų ir plėvelių likučių. Juos reikia šalinti atsargiai, kad nesubraižytumėte stiklo.",
     image="postatybinis-terasos-langu-valymas.webp", image_alt="Terasos langai naujos statybos name prieš postatybinį valymą",
-    price_detail="Apie <strong>3 kartus daugiau nei profilaktinis</strong> valymas (profilaktinis – 4–16 € už stiklą). Kalkių šalinimas – papildomai. Tikslią kainą pasakysime iš nuotraukų.",
+    price_detail="Apie <strong>3 kartus daugiau nei profilaktinis</strong> valymas (profilaktinis – 4–20 € už stiklą). Kalkių šalinimas – papildomai. Tikslią kainą pasakysime iš nuotraukų.",
     body="""<h2>Kada reikalingas šis valymas</h2>
 <ul><li>Baigus remontą ar naujos statybos darbus.</li><li>Įsikeliant į naują būstą ar biurą.</li><li>Jei langai nevalyti 3 metus ir ilgiau – tuomet tai vadiname generaliniu valymu.</li></ul>
 <h2>Ką pašaliname</h2>
@@ -157,7 +157,7 @@ SERVICES = [
     card="Biurai, kavinės, parduotuvės ir įstaigos. Dirbame netrukdydami jūsų darbui.",
     lead="Švarios vitrinos ir langai – pirmas dalykas, kurį pamato jūsų klientai. Valome biurų, kavinių, parduotuvių ir įstaigų langus Vilniuje.",
     image="kavines-stiklines-sienos-senamiestyje.webp", image_alt="Kavinės stiklinės sienos Vilniaus senamiestyje po valymo",
-    price_detail="<strong>4–16 € už stiklą</strong>, platūs vitrininiai stiklai – nuo 20 €. Dideli plotai nuo 400 m² skaičiuojami kvadratais.",
+    price_detail="<strong>4–20 € už stiklą</strong>, platus vitrininis stiklas nuo grindų iki lubų – 20 €. Dideli plotai nuo 400 m² skaičiuojami kvadratais.",
     body="""<h2>Kam valome</h2>
 <ul><li>Biurams ir verslo centrams.</li><li>Kavinėms, restoranams ir terasoms.</li><li>Parduotuvių vitrinoms.</li><li>Įstaigoms – mums teko valyti ir per 100 vieno darželio langų.</li></ul>
 <h2>Dirbame netrukdydami</h2>
