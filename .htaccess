@@ -19,10 +19,9 @@ RewriteRule ^(_build|\.git)(/|$) - [R=404,L]
 RewriteRule ^README\.md$ - [R=404,L]
 </IfModule>
 
-# Test copies on any other host must not be indexed
-SetEnvIfNoCase Host "^(www\.)?isileisksaule\.lt$" IS_LIVE
+# (No host-based noindex: behind Hostinger's CDN the origin doesn't see the real host.
+#  Every page has a canonical link to https://isileisksaule.lt instead.)
 <IfModule mod_headers.c>
-Header set X-Robots-Tag "noindex, nofollow" env=!IS_LIVE
 Header set X-Content-Type-Options "nosniff"
 Header set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
