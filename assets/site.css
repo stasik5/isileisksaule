@@ -130,3 +130,14 @@ footer h3{color:#fff;font-size:1rem}
 .consent .btn{padding:10px 16px;font-size:.93rem}
 @media (max-width:760px){.consent{bottom:84px}}
 @media (max-width:600px){.prices th,.prices td{padding:11px 12px;font-size:.95rem}.prices td:last-child{white-space:normal;min-width:88px}}
+/* v2 additions */
+.btn-mail{background:var(--teal-dk);color:#fff}
+.btn-mail:hover{background:#0b666b}
+.stack{display:grid;gap:10px;margin-top:14px}
+.stack .btn{width:100%}
+.prices tr.hl td{background:#fff4dc;color:#5c3900;font-weight:700}
+.prices tr.hl td:first-child{box-shadow:inset 4px 0 0 #e59a00}
+.prices tr.hl td:last-child{color:#8a4b00;font-size:1.05rem}
+.notice{margin:16px 0 4px;padding:14px 16px;border-radius:12px;background:#fff4dc;border:1px solid #f2c46b;border-left:5px solid #e59a00;color:#4a3000;font-size:1rem}
+.notice strong{color:#7a3f00}
+.cta .notice{color:#4a3000}

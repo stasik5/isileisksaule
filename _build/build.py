@@ -15,17 +15,23 @@ E = html.escape
 
 ICON = {
  "phone": '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>',
+ "mail": '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2zm8 7.2L4.3 6.5H19.7L12 11.2zM4 8.4V18h16V8.4l-8 4.9-8-4.9z"/></svg>',
  "wa": '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>',
 }
 
 def tel_link(loc, cls="btn btn-call", label=None):
     return f'<a class="{cls}" href="tel:{SITE["phone_e164"]}" data-loc="{loc}">{ICON["phone"]}{E(label or "Skambinti " + SITE["phone_display"])}</a>'
 
-def wa_link(loc, cls="btn btn-wa", label="Siųsti nuotraukas WhatsApp"):
+def mail_link(loc, cls="btn btn-mail", label="Siųsti nuotraukas el. paštu"):
+    from urllib.parse import quote
+    href = f'mailto:{SITE["email"]}?subject={quote(SITE["mail_subject"])}&body={quote(SITE["mail_body"])}'
+    return f'<a class="{cls}" href="{href}" data-loc="{loc}">{ICON["mail"]}{E(label)}</a>'
+
+def wa_link(loc, cls="btn btn-wa", label="Parašyti WhatsApp"):
     return f'<a class="{cls}" href="{SITE["whatsapp"]}" target="_blank" rel="noopener" data-loc="{loc}">{ICON["wa"]}{E(label)}</a>'
 
 def ctas(loc):
-    return f'<div class="btns">{tel_link(loc)}{wa_link(loc)}</div>'
+    return f'<div class="btns">{tel_link(loc)}{mail_link(loc)}{wa_link(loc)}</div>'
 
 def img(name, alt, w=None, h=None, lazy=True, cls=""):
     from PIL import Image
@@ -53,7 +59,7 @@ def business_ld():
       "address": {"@type": "PostalAddress", "streetAddress": SITE["street"], "addressLocality": "Vilnius", "addressCountry": "LT"},
       "areaServed": [{"@type": "City", "name": "Vilnius"}, {"@type": "AdministrativeArea", "name": "Vilniaus rajonas"}],
       "openingHoursSpecification": [{"@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
           "opens": SITE["opens"], "closes": SITE["closes"]}],
       "sameAs": SITE["same_as"],
     }
@@ -109,7 +115,7 @@ gtag('js',new Date());gtag('config','{ga}');
 <footer><div class="wrap">
 <div class="grid">
 <div><h3>{E(SITE["name"])}</h3><p>Langų valymas Vilniuje ir Vilniaus rajone nuo {SITE["since"]} m.</p><p>{E(SITE["legal_name"])}<br>Įm. k. {SITE["company_code"]}<br>{E(SITE["street"])}, Vilnius</p></div>
-<div><h3>Kontaktai</h3><p><a href="tel:{SITE["phone_e164"]}" data-loc="footer">{SITE["phone_display"]}</a><br><a href="mailto:{SITE["email"]}" data-loc="footer">{SITE["email"]}</a><br><a href="{SITE["whatsapp"]}" target="_blank" rel="noopener" data-loc="footer">WhatsApp</a> · <a href="{SITE["viber"]}" data-loc="footer">Viber</a></p><p>Darbo laikas: I–V {SITE["opens"]}–{SITE["closes"]}</p></div>
+<div><h3>Kontaktai</h3><p><a href="tel:{SITE["phone_e164"]}" data-loc="footer">{SITE["phone_display"]}</a><br><a href="mailto:{SITE["email"]}" data-loc="footer">{SITE["email"]}</a><br><a href="{SITE["whatsapp"]}" target="_blank" rel="noopener" data-loc="footer">WhatsApp</a> · <a href="{SITE["viber"]}" data-loc="footer">Viber</a></p><p>Darbo laikas: {SITE["days_label"]} {SITE["opens"]}–{SITE["closes"]}<br>Sekmadienį nedirbame</p></div>
 <div><h3>Paslaugos</h3><p>{"<br>".join(f'<a href="/{s["slug"]}/">{E(s["short"])}</a>' for s in SERVICES)}</p></div>
 <div><h3>Daugiau</h3><p><a href="/papildoma-informacija/">Patarimai</a><br><a href="{SITE["gbp"]}" target="_blank" rel="noopener">Atsiliepimai Google</a><br><a href="/privatumo-politika/">Privatumo politika</a><br><a href="#" data-open-consent>Slapukų nustatymai</a></p></div>
 </div>
@@ -141,7 +147,8 @@ def gallery_html(items):
     return '<div class="gallery">' + "".join(f"<figure>{img(f, alt)}<figcaption>{E(alt)}</figcaption></figure>" for f,alt in items) + "</div>"
 
 def price_rows():
-    return "".join(f"<tr><td>{r[0]}</td><td>{r[1]}</td></tr>" for r in SITE["prices"])
+    hl = ' class="hl"'
+    return "".join(f'<tr{hl if r[2] else ""}><td>{r[0]}</td><td>{r[1]}</td></tr>' for r in SITE["prices"])
 
 def build():
     pages = []
@@ -154,22 +161,22 @@ def build():
 <h1>Langų valymas Vilniuje</h1>
 <p class="lead">Butų, namų ir verslo langai, balkonai, vitrinos. Aiški kaina už stiklą, savo įranga ir priemonės, po darbų – tvarka. Dirbame nuo {SITE["since"]} m.</p>
 {ctas("hero")}
-<ul class="trust"><li><span class="stars">★★★★★</span> 5,0 Google ({SITE["google_reviews"]} atsiliepimai)</li><li>Nuo 4 € už stiklą</li><li>Vilnius ir Vilniaus r.</li></ul>
+<ul class="trust"><li><span class="stars">★★★★★</span> 5,0 Google ({SITE["google_reviews"]} atsiliepimai)</li><li>~8 € už stiklą</li><li>Min. užsakymas 60 €</li><li>Vilnius ir Vilniaus r.</li></ul>
 </div>
 {img("biuro-pastato-langai-ir-terasa.webp", "Išvalyti biuro pastato langai Vilniuje", lazy=False)}
 </div></section>
 
 <section id="paslaugos"><div class="wrap">
 <h2>Ką valome</h2>
-<p class="lead">Profilaktinis valymas – kasmetiniam langų blizgesiui. Sudėtingesniems darbams – atskiros paslaugos.</p>
+<p class="lead">Dažniausiai užsakomas periodinis butų ir namų langų valymas. Sudėtingesniems darbams – atskiros paslaugos.</p>
 <div class="grid g3">{svc_cards}</div>
 </div></section>
 
 <section class="alt" id="kainos"><div class="wrap">
 <h2>Kainos</h2>
-<p class="lead">Kaina skaičiuojama už stiklą, valant iš abiejų pusių. Tikslią kainą pasakysime pamatę nuotraukas.</p>
+<p class="lead">Kaina skaičiuojama už stiklą, valant iš abiejų pusių. Vidutiniškai ~8 € už stiklą – tikslią kainą pasakysime pamatę nuotraukas.</p>
 <table class="prices"><thead><tr><th>Paslauga</th><th>Kaina</th></tr></thead><tbody>{price_rows()}</tbody></table>
-<p class="small" style="margin-top:12px">{E(SITE["price_note"])}</p>
+<div class="notice">{SITE["notice"]}</div>
 {ctas("prices")}
 </div></section>
 
@@ -209,8 +216,8 @@ def build():
 
 <section class="cta"><div class="wrap">
 <h2>Sužinokite kainą per kelias minutes</h2>
-<p>Paskambinkite – pasakysime preliminarią kainą ir laisvus laikus. Arba atsiųskite langų nuotraukas ir gausite tikslią kainą.</p>
-<div class="btns">{tel_link("cta")}{wa_link("cta")}<a class="btn btn-ghost" href="{SITE["viber"]}" data-loc="cta">Viber</a></div>
+<p>Paskambinkite – pasakysime preliminarią kainą ir laisvus laikus. Arba atsiųskite langų nuotraukas el. paštu ir gausite tikslią kainą. Trumpam klausimui – parašykite WhatsApp.</p>
+<div class="btns">{tel_link("cta")}{mail_link("cta")}{wa_link("cta")}<a class="btn btn-ghost" href="{SITE["viber"]}" data-loc="cta">Viber</a></div>
 </div></section>
 '''
     pages.append(page("/", SITE["home_title"], SITE["home_desc"], home,
@@ -232,7 +239,7 @@ def build():
 </div></section>
 <section><div class="wrap two">
 <div class="article">{s["body"]}</div>
-<aside class="card"><h3>Kaina</h3><p>{s["price_detail"]}</p><p class="small">Minimali užsakymo suma – {SITE["min_order"]} €.</p>{tel_link("service_aside")}<p></p>{wa_link("service_aside")}</aside>
+<aside class="card"><h3>Kaina</h3><p>{s["price_detail"]}</p><div class="notice">{SITE["notice"]}</div><div class="stack">{tel_link("service_aside")}{mail_link("service_aside")}{wa_link("service_aside")}</div></aside>
 </div></section>
 <section class="alt"><div class="wrap">
 <h2>Klausimai</h2>
