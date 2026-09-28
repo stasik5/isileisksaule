@@ -14,7 +14,7 @@ SITE = {
   "viber": "viber://chat?number=%2B37061458748",
   "ga4": "G-DL4VGZ7YQM",
   "since": "2014",
-  "opens": "07:00", "closes": "18:00", "days_label": "I–VI",
+  "opens": "07:00", "closes": "22:00", "days_label": "I–VII",
   "min_order": 60,
   "google_reviews": 42,
   "gbp": "https://www.google.com/maps/search/?api=1&query=%C4%AEsileisk%20Saul%C4%99%20lang%C5%B3%20valymas%20Vilniuje",
@@ -257,7 +257,7 @@ SITE["privacy_html"] = PRIVACY
 HOME = {
   "hero_h1": "Profesionalus langų valymas Vilniuje ir rajone.",
   "hero_h2": "Aiškios kainos. Geri atsiliepimai.",
-  "order_call": "Norėdami sužinoti savo langų valymo kainą, spauskite mygtuką „Skambinti“ – telefonu pasakysime preliminarią „nuo–iki“ kainą ir galėsite pasirinkti iš poros laisvų laikų.",
+  "order_call": "Norėdami sužinoti savo langų valymo kainą, spauskite mygtuką „Skambinti“ – telefonu pasakysime preliminarią „nuo–iki“ kainą ir galėsite pasirinkti iš poros laisvų laikų. Skambinkite kasdien 7–22 val., be išeiginių.",
   "order_photos": "Norėdami sužinoti tikslią kainą, atsiųskite savo langų nuotraukas paspaudę „Siųsti nuotraukas“ – atsidarys laiškas mūsų el. paštu. Trumpam klausimui – žalias „WhatsApp“ mygtukas dešinėje ekrano pusėje.",
   "process_intro": "Jau seniai valome langus, todėl sukūrėme procesą, leidžiantį mums kaskart patikimai teikti tokią pačią paslaugą:",
   "process_icons": ["telefonas", "apziura", "informuojame", "patikriname", "priminimas"],
