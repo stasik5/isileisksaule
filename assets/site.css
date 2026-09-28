@@ -196,3 +196,5 @@ ul.facts li::before{content:"✓";position:absolute;left:0;top:0;color:var(--pin
   .svc-box{grid-column:1;grid-row:1;position:static}
   .svc-grid .article{grid-row:2}
 }
+ul.facts li.no{color:var(--muted)}
+ul.facts li.no::before{content:"–";color:var(--muted);font-weight:800;font-size:1.15em;line-height:1.3}

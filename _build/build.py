@@ -57,9 +57,13 @@ def prices_html():
         for i, r in enumerate(rows))
     return f'<ul class="prices">{lines}</ul><div class="notice">{SITE["notice"]}</div>'
 
+def facts_html(fl):
+    """Checkmark list; a fact starting with '-' is an exclusion and gets a minus sign."""
+    return "".join(f'<li class="no">{E(f[1:])}</li>' if f.startswith("-") else f"<li>{E(f)}</li>" for f in fl)
+
 def svc_card(s):
     """Service card: price and key facts at a glance; the page behind it has the details."""
-    facts = "".join(f"<li>{E(f)}</li>" for f in s["facts"])
+    facts = facts_html(s["facts"])
     return (f'<a class="svc" href="/{s["slug"]}/"><h3>{E(s["short"])}</h3>'
             f'<p class="svc-price">{E(s["card_price"])}</p><ul class="facts">{facts}</ul>'
             f'<span class="more">Plačiau →</span></a>')
@@ -258,7 +262,7 @@ def build():
     # SERVICE PAGES — same look: pink centred title, teal lead, the two buttons, then details.
     for s in SERVICES:
         others = "".join(svc_card(o) for o in SERVICES if o is not s)
-        facts = "".join(f"<li>{E(f)}</li>" for f in s["facts"])
+        facts = facts_html(s["facts"])
         body = f'''
 <section class="svc-page"><div class="wrap">
 <p class="crumbs"><a href="/">Pradžia</a> › {E(s["short"])}</p>

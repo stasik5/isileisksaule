@@ -71,7 +71,7 @@ FAQ_HOME = [
   ("Kiek kainuoja langų valymas Vilniuje?", "Periodinis valymas iš abiejų pusių kainuoja vidutiniškai apie 8 € už stiklą – tiek kainuoja standartinis virtuvės langas daugiabutyje. Platus vitrininis stiklas nuo grindų iki lubų – 20 €. Minimali užsakymo suma – 60 €, kalkių šalinimas – papildomai."),
   ("Kaip sužinoti tikslią kainą?", "Paskambinkite – telefonu pasakysime preliminarią kainą „nuo–iki“. Tikslią kainą pasakysime, kai atsiųsite langų nuotraukas el. paštu info@isileisksaule.lt (arba per WhatsApp ar Viber)."),
   ("Kuo skiriasi periodinis ir postatybinis valymas?", "Periodinis (profilaktinis) – įprastas valymas, kai langai valomi bent kartą per metus. Postatybinis ar generalinis reikalingas po remonto arba jei langai nevalyti 3 metus ir ilgiau; jis kainuoja apie 3 kartus daugiau."),
-  ("Ar kalkių šalinimas įeina į kainą?", "Ne. Kalkių (kieto vandens) dėmių šalinimas užsakomas papildomai – 10–30 € už stiklą, priklausomai nuo užterštumo."),
+  ("Ar kalkių šalinimas įeina į kainą?", "Ne. Kalkių (kieto vandens dėmių) šalinimas užsakomas papildomai – 10–30 € už stiklą, priklausomai nuo užterštumo. Ar kalkių yra, paaiškėja tik atlikus periodinį valymą."),
   ("Ar reikia pasiruošti prieš valymą?", "Užtenka atlaisvinti priėjimą prie langų: nuimti daiktus ir gėles nuo palangių. Priemones ir įrangą atsivežame patys."),
   ("Kokiose vietovėse dirbate?", "Vilniuje ir Vilniaus rajone. Valome butų, namų, biurų, kavinių ir įstaigų langus."),
 ]
@@ -79,7 +79,7 @@ FAQ_HOME = [
 def _svc(**k): return k
 
 SERVICES = [
-  _svc(slug="periodinis-langu-valymas", card_price='~8 € / stiklas', facts=['Stiklai iš vidaus ir iš lauko pusės', 'Rekomenduojama bent kartą per metus', 'Savo įranga ir priemonės', 'Kalkių šalinimas neįeina'], short="Periodinis langų valymas",
+  _svc(slug="periodinis-langu-valymas", card_price='~8 € / stiklas', facts=['Stiklai iš vidaus ir iš lauko pusės', 'Rekomenduojama bent kartą per metus', 'Savo įranga ir priemonės', '-Kalkių šalinimas neįeina'], short="Periodinis langų valymas",
     h1="Periodinis (profilaktinis) langų valymas", price_short="~8 € / stiklas",
     title="Periodinis langų valymas Vilniuje – butai ir namai | Įsileisk Saulę",
     desc="Periodinis (profilaktinis) butų ir namų langų valymas Vilniuje iš abiejų pusių. Vidutiniškai ~8 € už stiklą, primename apie kitą valymą po 3 ar 6 mėn.",
@@ -93,7 +93,7 @@ SERVICES = [
 <p>Bent kartą per metus. Tuomet užtenka periodinio valymo, o gatvės purvas ir kalkės nespėja įsigerti į stiklą. Jei langai nevalyti 3 metus ir ilgiau arba ką tik baigėte remontą, reikės <a href="/postatybinis-langu-valymas/">postatybinio (generalinio) valymo</a>.</p>
 <p>Po valymo pasiūlome priminti apie kitą – po 3 ar 6 mėnesių. Nereikės atsiminti ar vėl ieškoti mūsų kontaktų.</p>
 <h2>Kas neįeina</h2>
-<p>Įsisenėjusių kalkių dėmių šalinimas į periodinio valymo kainą neįeina. Jei jas pastebime, parodome jums ir tik tada sutariame dėl <a href="/kalkiu-salinimas-nuo-stiklo/">kalkių šalinimo</a>.</p>
+<p>Įsisenėjusių kalkių dėmių šalinimas į periodinio valymo kainą neįeina. Ar jų yra, paaiškėja tik išvalius langus – tada jas parodome jums ir sutariame dėl <a href="/kalkiu-salinimas-nuo-stiklo/">kalkių šalinimo</a>.</p>
 <h2>Kaip užsakyti</h2>
 <p>Paskambinkite – pasakysime preliminarią kainą ir laisvus laikus. Arba atsiųskite langų nuotraukas el. paštu ir gausite tikslią kainą.</p>""",
     faq=[("Kiek kainuoja periodinis langų valymas?", "Vidutiniškai ~8 € už stiklą iš abiejų pusių. Minimali užsakymo suma – 60 €."),
@@ -111,14 +111,14 @@ SERVICES = [
     body="""<h2>Ką atliekame</h2>
 <ul><li>Balkono ir lodžijos stiklų valymą iš vidaus ir iš lauko pusės.</li><li>Stumdomų ir varstomų balkono rėmų stiklus.</li><li>Kartu galime išvalyti ir buto langus – tuomet vienas atvykimas.</li></ul>
 <h2>Verta žinoti</h2>
-<p>Balkonų stiklai greitai pasidengia dulkėmis ir gatvės purvu, o lietaus vanduo ant jų palieka mineralų dėmes. Jei stiklai nevalyti kelerius metus, gali prireikti ir kalkių šalinimo – tai įvertinsime iš nuotraukų.</p>
+<p>Balkonų stiklai greitai pasidengia dulkėmis ir gatvės purvu, o lietaus vanduo ant jų palieka mineralų dėmes. Jei stiklai nevalyti kelerius metus, gali prireikti ir kalkių šalinimo – tai paaiškės išvalius stiklus.</p>
 <h2>Kaip užsakyti</h2>
 <p>Atsiųskite balkono nuotrauką el. paštu – pasakysime tikslią kainą ir pasiūlysime laiką. Arba paskambinkite ir sužinokite preliminarią kainą iš karto.</p>""",
     faq=[("Ar valote balkono stiklus iš lauko pusės?", "Taip, stiklus valome iš abiejų pusių – kaina už stiklą tai ir apima."),
          ("Kiek kainuoja balkono langų valymas?", "Vidutiniškai ~8 € už stiklą, priklausomai nuo dydžio. Minimali užsakymo suma – 60 €, todėl dažnai verta kartu išsivalyti ir buto langus."),
          ("Ar reikia būti namuose?", "Taip, reikia prieigos prie balkono. Prieš ir po darbų kartu apžiūrime langus.")]),
 
-  _svc(slug="postatybinis-langu-valymas", card_price='~3× periodinio kainos', facts=['Po remonto, statybų arba jei nevalyta 3+ metus', 'Dažų, tinko, putų, silikono, plėvelių likučiai', 'Kalkių šalinimas neįeina'], short="Postatybinis langų valymas",
+  _svc(slug="postatybinis-langu-valymas", card_price='~3× periodinio kainos', facts=['Po remonto, statybų arba jei nevalyta 3+ metus', 'Dažų, tinko, putų, silikono, plėvelių likučiai', '-Kalkių šalinimas neįeina'], short="Postatybinis langų valymas",
     h1="Postatybinis langų valymas", price_short="~3× profilaktinio",
     title="Postatybinis langų valymas Vilniuje po remonto | Įsileisk Saulę",
     desc="Langų valymas po statybų ir remonto Vilniuje: dažų, tinko, silikono, putų ir apsauginių plėvelių likučiai. Taip pat generalinis valymas, jei langai nevalyti 3+ metus.",
@@ -138,22 +138,24 @@ SERVICES = [
          ("Ar kalkių šalinimas įeina?", "Ne, kalkių dėmių šalinimas užsakomas papildomai – 10–30 € už stiklą."),
          ("Ar valote naujos statybos namus ir biurus?", "Taip – ir butus, ir privačius namus, ir komercines patalpas.")]),
 
-  _svc(slug="kalkiu-salinimas-nuo-stiklo", card_price='+10–30 € / stiklas', facts=['Pilkos dėmės ir „upeliai“, kurių nenuima valymas', 'Užsakoma kartu su langų valymu', 'Kainą įvertiname iš nuotraukų'], short="Kalkių šalinimas nuo stiklo",
+  _svc(slug="kalkiu-salinimas-nuo-stiklo", card_price='+10–30 € / stiklas', facts=['Pilkos dėmės ir „upeliai“, kurių nenuima valymas', 'Paaiškėja tik išvalius langus', 'Užsakoma kartu su langų valymu'], short="Kalkių šalinimas nuo stiklo",
     h1="Kalkių šalinimas nuo langų stiklo", price_short="10–30 € / stiklas",
     title="Kalkių dėmių šalinimas nuo langų stiklo Vilniuje | Įsileisk Saulę",
-    desc="Pilkos dėmės ir „upeliai“ ant stiklo, kurių nenuvalo įprastas valymas? Šaliname kieto vandens (kalkių) nuosėdas nuo langų ir stiklinių sienų Vilniuje. 10–30 € už stiklą.",
-    card="Pilkos dėmės ir „upeliai“, kurių nenuvalo įprastas valymas.",
-    lead="Jei ir išvalius langus matosi pilkos dėmės ar „upeliai“ – tai kieto vandens mineralai (kalkės), įsigėrę į stiklo paviršių. Įprastu valymu jų nepašalinsite.",
+    desc="Pilkos dėmės ir „upeliai“ ant stiklo, kurių nepašalina įprastas valymas? Šaliname kieto vandens (kalkių) nuosėdas nuo langų ir stiklinių sienų Vilniuje. 10–30 € už stiklą.",
+    card="Pilkos dėmės ir „upeliai“, kurių nepašalina įprastas valymas.",
+    lead="Jei ir išvalius langus matyti pilkų dėmių ar „upelių“ – tai kieto vandens mineralai (kalkės), įsigėrę į stiklo paviršių. Įprastu valymu jų nepašalinsite.",
     image="privataus-namo-stiklo-fasadas.webp", image_alt="Privataus namo stiklinis fasadas po kalkių šalinimo",
-    price_detail="<strong>10–30 € už stiklą</strong>, priklausomai nuo to, kiek kalkės įsigėrusios. Užsakoma kartu su langų valymu.",
+    price_detail="<strong>10–30 € už stiklą</strong>, priklausomai nuo to, kiek giliai kalkės įsigėrusios. Ar jų yra, paaiškėja tik atlikus periodinį valymą.",
     body="""<h2>Iš kur atsiranda kalkių dėmės</h2>
-<p>Stiklo paviršius – porėtas. Ant jo nuolat patenka lietaus, laistymo ar plovimo vanduo su mineralais. Kepinant saulei mineralai po truputį įsigeria į stiklą ir susidaro pilkšvos dėmės, dryžiai ir „upeliai“ po palangėmis.</p>
+<p>Stiklo paviršius porėtas. Ant jo nuolat patenka lietaus, laistymo ar plovimo vanduo su mineralais. Kaitinant saulei mineralai po truputį įsigeria į stiklą, ir susidaro pilkšvos dėmės, dryžiai ir „upeliai“ po palangėmis.</p>
 <h2>Kodėl verta šalinti laiku</h2>
 <p>Kuo ilgiau kalkės lieka ant stiklo, tuo giliau įsigeria ir tuo brangiau jas pašalinti. Ilgainiui vienintelė išeitis gali būti stiklo poliravimas ar net keitimas. Reguliarus langų valymas neleidžia kalkėms kauptis.</p>
 <h2>Kaip dirbame</h2>
-<p>Pirmiausia įvertiname užterštumą – dažniausiai pakanka nuotraukos. Valydami langus pastebėtas kalkes parodome jums ir tik tada sutariame dėl jų šalinimo. Jokių netikėtų papildomų sumų.</p>""",
-    faq=[("Kiek kainuoja kalkių šalinimas?", "10–30 € už stiklą, priklausomai nuo užterštumo. Kainą galime įvertinti iš nuotraukų."),
-         ("Ar galima kalkes pašalinti visiškai?", "Dažniausiai – taip. Jei kalkės įsigėrusios labai giliai, prieš darbus apie tai pasakysime atvirai."),
+<p>Pirmiausia atliekame periodinį valymą. Tik tada tampa aišku, ar ant stiklo liko kalkių: kai kurie „upeliai“ būna visai nauji ir puikiai nusivalo. Likusias kalkes parodome jums ir tik tada sutariame dėl jų šalinimo. Jokių netikėtų papildomų sumų.</p>
+<h2>Ar galima įvertinti iš nuotraukos?</h2>
+<p>Ne. Iš nuotraukos neįmanoma atskirti kalkių nuo įprasto purvo. Galime tik nuspėti, kad kalkių greičiausiai bus, jei langai nevalyti kelerius metus, jei patys bandėte valyti ir kažkas nenusivalė, arba jei tai tipinė vieta – pavyzdžiui, viršutinė neatidaromo lango dalis.</p>""",
+    faq=[("Kiek kainuoja kalkių šalinimas?", "10–30 € už stiklą, priklausomai nuo užterštumo. Tikslią kainą galime pasakyti tik išvalę langus ir pamatę, kas liko."),
+         ("Ar galima kalkes pašalinti visiškai?", "Dažniausiai – taip. Jei kalkės įsigėrusios labai giliai, prieš šalindami apie tai pasakysime atvirai."),
          ("Kaip išvengti kalkių dėmių?", "Valykite langus reguliariai – bent kartą per metus. Po valymo galime priminti apie kitą valymą po 3 ar 6 mėnesių.")]),
 
   _svc(slug="lipduku-salinimas-nuo-stiklo", card_price='Kaina pagal nuotraukas', facts=['Reklaminiai lipdukai, užrašai, plėvelės', 'Nuimame ir klijų likučius', 'Po to stiklą išvalome'], short="Lipdukų šalinimas nuo stiklo",
@@ -204,7 +206,7 @@ SERVICES = [
 <ul><li>Daugiabučių namų savininkų bendrijoms.</li><li>Namų administratoriams.</li><li>Gyventojams, kurie susitarė kartu užsakyti valymą.</li></ul>
 <h2>Kaip užsakyti</h2>
 <p>Parašykite, kiek aukštų ir laiptinių, atsiųskite kelias langų nuotraukas. Pasakysime kainą ir laisvus laikus.</p>
-<p>Jei langai labai seniai nevalyti, gali prireikti generalinio valymo ar kalkių šalinimo – tai įvertinsime iš nuotraukų.</p>""",
+<p>Jei langai labai seniai nevalyti, gali prireikti generalinio valymo – tai įvertinsime iš nuotraukų. Ar yra kalkių, paaiškės tik išvalius langus.</p>""",
     faq=[("Kiek kainuoja laiptinės langų valymas?", "Priklauso nuo aukštų ir langų skaičiaus bei užterštumo. Pasakysime iš nuotraukų."),
          ("Ar išrašote sąskaitas bendrijoms?", "Taip, dirbame kaip MB „Atlas solutions“."),
          ("Ar galima valyti reguliariai?", "Taip, galime susitarti dėl reguliaraus valymo, pvz., pavasarį ir rudenį.")]),
@@ -258,26 +260,30 @@ HOME = {
   "process_icons": ["telefonas", "apziura", "informuojame", "patikriname", "priminimas"],
   "about_lead": "Esame nedidelė mandagių specialistų komanda, teikianti langų valymo paslaugas Vilniuje. Dirbame nuo 2014 metų. Suprantame, kad langai (ar vitrinos) yra jūsų namų (ar verslo) „veidas“, todėl savo darbą atliekame itin atsakingai. Mums būtų malonu įleisti saulę ir į jūsų namus!",
   "about": [
-    "Langų valymo paskirtis – ne vien švarūs, bet ir sveiki langai. Gatvės purvas, kieto vandens mineralai (kalkės), organinės kilmės nešvarumai ne tik atrodo neestetiškai, bet ir gadina stiklą. Stiklo paviršius porėtas, todėl, kepinant saulei, mineralai palaipsniui į jį įsigeria. Būtent todėl net išvalius langus vis tiek matosi įsisenėję kalkių klodai ar „upeliai“.",
+    "Langų valymo paskirtis – ne vien švarūs, bet ir sveiki langai. Gatvės purvas, kieto vandens mineralai (kalkės), organinės kilmės nešvarumai ne tik atrodo neestetiškai, bet ir gadina stiklą. Stiklo paviršius porėtas, todėl, kaitinant saulei, mineralai palaipsniui į jį įsigeria. Būtent todėl net išvalius langus vis tiek matyti įsisenėjusių kalkių klodų ar „upelių“.",
     "Tokiu atveju tenka užsakyti brangias kalkių šalinimo procedūras arba keisti stiklus. Viso to galima išvengti reguliariai valant langus – taip visada džiaugsitės ryškia saulės šviesa ir sutaupysite.",
   ],
   "reviews_note": "Visus šiuos atsiliepimus ir daugiau galima rasti mūsų skelbiu.lt puslapyje – tada dar neturėjome svetainės :)",
 }
 
 KALKES = dict(slug="kas-yra-kalkes",
-  h1="Kas yra kalkės ant langų ir kodėl įprastas valymas jų nenuvalo?",
-  title="Kas yra kalkės ant langų ir kodėl jos nenusivalo | Įsileisk Saulę",
-  desc="Kalkės ant langų – pilkos dėmės ir „upeliai“, kurie lieka net išvalius stiklą. Paaiškiname, iš kur jos atsiranda, kodėl periodinis valymas jų nepašalina ir kiek kainuoja jų šalinimas.",
-  lead="Jei po valymo ant stiklo vis tiek matosi pilkšvos dėmės, dryžiai ar „upeliai“ – tai kalkės. Jos nėra purvas ant stiklo paviršiaus, todėl įprastas valymas jų nenuima.",
+  h1="Kas yra kalkės ant langų ir kodėl jų nepašalina įprastas valymas?",
+  title="Kas yra kalkės ant langų ir kodėl jų nepašalina įprastas valymas | Įsileisk Saulę",
+  desc="Kalkės ant langų – pilkos dėmės ir „upeliai“, kurie lieka net išvalius stiklą. Paaiškiname, iš kur jos atsiranda, kodėl periodinis valymas jų nepašalina ir kodėl jų neįmanoma įvertinti iš nuotraukos.",
+  lead="Jei ir po valymo ant stiklo matyti pilkšvų dėmių, dryžių ar „upelių“ – tai kalkės. Tai ne purvas ant stiklo paviršiaus, todėl įprastas valymas jų nepašalina.",
   body="""<h2>Kas tai yra</h2>
-<p>Kalkės – tai kieto vandens mineralų nuosėdos. Ant langų vanduo patenka iš lietaus, laistymo, fasado ar balkono plovimo, nuo stogo varvančio vandens. Vandeniui išdžiūvus mineralai lieka ant stiklo.</p>
-<p>Stiklo paviršius porėtas. Kepinant saulei mineralai po truputį į jį įsigeria ir susidaro sluoksnis, kuris tampa stiklo dalimi. Todėl kalkės neatsiplauna nei vandeniu, nei įprastomis valymo priemonėmis.</p>
+<p>Kalkės – tai kieto vandens mineralų nuosėdos. Vanduo ant langų patenka su lietumi, laistant gėles, plaunant fasadą ar balkoną, varvant nuo stogo ar stogelio. Vandeniui išdžiūvus mineralai lieka ant stiklo.</p>
+<p>Stiklo paviršius porėtas. Kaitinant saulei mineralai po truputį į jį įsigeria, ir susidaro sluoksnis, kuris tampa tarsi stiklo dalimi. Todėl jo nenuplauna nei vanduo, nei įprastos valymo priemonės.</p>
 <h2>Kaip jos atrodo</h2>
-<ul><li>Pilkšvos ar baltos dėmės, ypač gerai matomos prieš saulę.</li><li>Dryžiai ir „upeliai“ po palangėmis, stogeliais, balkono atbrailomis.</li><li>Matinis, „miglotas“ stiklas, kuris nežvilga net išvalytas.</li></ul>
+<ul><li>Pilkšvos ar baltos dėmės, ypač gerai matomos prieš saulę.</li><li>Dryžiai ir „upeliai“ po palangėmis, stogeliais, balkonų atbrailomis.</li><li>Matinis, tarsi aprasojęs stiklas, kuris nežvilga net išvalytas.</li></ul>
 <h2>Kodėl periodinis valymas jų nepašalina</h2>
 <p><strong>Periodinis (profilaktinis) valymas nuima purvą, dulkes ir dėmes nuo stiklo paviršiaus.</strong> Kalkės yra ne ant paviršiaus, o įsigėrusios į jį. Joms pašalinti reikia specialių priemonių ir kelis kartus daugiau darbo kiekvienam stiklui.</p>
-<p>Todėl kalkių šalinimas yra <strong>atskira paslauga</strong> ir į valymo kainą neįeina. Jis kainuoja <strong>10–30 € už stiklą</strong> – priklausomai nuo to, kiek giliai kalkės įsigėrusios.</p>
-<p>Prieš valymą kartu su jumis apžiūrime langus. Jei pamatome kalkes, iškart jas parodome ir sutariame, ar norite jas šalinti. Jokių netikėtų sumų sąskaitoje.</p>
+<p>Todėl kalkių šalinimas yra <strong>atskira paslauga</strong> ir į valymo kainą neįeina. Jis kainuoja <strong>10–30 € už stiklą</strong>, priklausomai nuo to, kiek giliai kalkės įsigėrusios.</p>
+<h2>Kodėl jų neįmanoma įvertinti iš nuotraukos</h2>
+<p>Iš nuotraukos kalkių neatskirsi nuo įprasto purvo. Kai kurie „upeliai“ būna visai nauji ir išvalius puikiai nusivalo. <strong>Ar kalkių tikrai yra, paaiškėja tik atlikus periodinį valymą.</strong></p>
+<p>Galime tik gana tiksliai nuspėti, kad kalkių greičiausiai bus, jei:</p>
+<ul><li>langai nevalyti kelerius metus;</li><li>patys bandėte valyti, bet kažkas nenusivalė;</li><li>tai tipinė vieta, pavyzdžiui, viršutinė neatidaromo lango dalis.</li></ul>
+<p>Išvalę langus kartu su jumis juos apžiūrime. Jei liko kalkių, jas parodome ir sutariame, ar norite jas šalinti. Jokių netikėtų sumų sąskaitoje.</p>
 <h2>Kaip išvengti kalkių</h2>
-<ul><li><strong>Valykite langus reguliariai</strong> – bent kartą per metus. Tada mineralai nespėja įsigerti į stiklą.</li><li>Laistydami gėles ar plaudami balkoną stenkitės neaptaškyti stiklų – o jei aptaškėte, nušluostykite, kol vanduo neišdžiūvo.</li><li>Po valymo galime priminti apie kitą valymą po 3 ar 6 mėnesių.</li></ul>
-<p>Jei kalkės jau yra, daugiau apie jų šalinimą rasite puslapyje <a href="/kalkiu-salinimas-nuo-stiklo/">Kalkių šalinimas nuo stiklo</a>.</p>""")
+<ul><li><strong>Valykite langus reguliariai</strong> – bent kartą per metus. Tada mineralai nespėja įsigerti į stiklą.</li><li>Laistydami gėles ar plaudami balkoną stenkitės neaptaškyti stiklų. Jei aptaškėte, nušluostykite, kol vanduo dar neišdžiūvo.</li><li>Po valymo galime priminti apie kitą valymą po 3 ar 6 mėnesių.</li></ul>
+<p>Jei kalkių jau yra, daugiau apie jų šalinimą rasite puslapyje <a href="/kalkiu-salinimas-nuo-stiklo/">Kalkių šalinimas nuo stiklo</a>.</p>""")
