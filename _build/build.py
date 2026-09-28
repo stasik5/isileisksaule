@@ -184,6 +184,7 @@ gtag('js',new Date());gtag('config','{ga}');
 '''
     out = os.path.join(ROOT, path.strip("/"), "index.html") if path != "/" else os.path.join(ROOT, "index.html")
     os.makedirs(os.path.dirname(out), exist_ok=True)
+    doc = re.sub(r"(\d) €", "\\1\u00a0€", doc)  # keep "20 €" on one line
     with open(out, "w", encoding="utf-8") as f: f.write(doc)
     return path
 

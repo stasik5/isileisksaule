@@ -103,7 +103,7 @@ SERVICES = [
          ("Ar reikia būti namuose?", "Taip. Prieš darbus ir po jų kartu apžiūrime langus, kad viskas būtų taip, kaip sutarta."),
          ("Ar galite priminti apie kitą valymą?", "Taip, po valymo pasiūlome priminti po 3 ar 6 mėnesių.")]),
 
-  _svc(slug="balkono-langu-valymas", card_price='~8 € / stiklas', facts=['Stiklai iš abiejų pusių, ir iš lauko', 'Stumdomi ir varstomi rėmai', 'Galima kartu su buto langais – vienas atvykimas'], short="Balkono langų valymas",
+  _svc(slug="balkono-langu-valymas", card_price='~8 € / stiklas', facts=['Stiklai iš vidaus ir iš lauko pusės', 'Stumdomi ir varstomi rėmai', 'Galima kartu su buto langais – vienas atvykimas'], short="Balkono langų valymas",
     h1="Balkono langų valymas Vilniuje", price_short="~8 € / stiklas",
     title="Balkono langų valymas Vilniuje – ~8 € už stiklą | Įsileisk Saulę",
     desc="Balkonų ir lodžijų stiklų valymas Vilniuje iš abiejų pusių. Stumdomi ir varstomi rėmai, aiški kaina už stiklą, minimali suma 60 €.",
