@@ -5,12 +5,13 @@ Edit the content in this file (and _build/content.py), then run:
     python3 _build/build.py
 It writes the HTML pages into the repository root. Commit and push; Hostinger deploys the repo.
 """
-import json, os, html, datetime
+import json, os, html, datetime, hashlib
 from content import SITE, SERVICES, REVIEWS, FAQ_HOME, ARTICLES, GALLERY
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE = SITE["url"]  # canonical base, no trailing slash
-VER = datetime.date.today().strftime("%Y%m%d")
+# cache-busting version = hash of the CSS+JS, so browsers fetch new styles after every change
+VER = hashlib.md5(b"".join(open(os.path.join(ROOT, "assets", f), "rb").read() for f in ("site.css", "site.js"))).hexdigest()[:8]
 E = html.escape
 
 ICON = {
