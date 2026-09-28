@@ -79,7 +79,7 @@ FAQ_HOME = [
 def _svc(**k): return k
 
 SERVICES = [
-  _svc(slug="periodinis-langu-valymas", short="Periodinis langų valymas",
+  _svc(slug="periodinis-langu-valymas", card_price='~8 € / stiklas', facts=['Stiklai iš vidaus ir iš lauko pusės', 'Rekomenduojama bent kartą per metus', 'Savo įranga ir priemonės', 'Kalkių šalinimas neįeina'], short="Periodinis langų valymas",
     h1="Periodinis (profilaktinis) langų valymas", price_short="~8 € / stiklas",
     title="Periodinis langų valymas Vilniuje – butai ir namai | Įsileisk Saulę",
     desc="Periodinis (profilaktinis) butų ir namų langų valymas Vilniuje iš abiejų pusių. Vidutiniškai ~8 € už stiklą, primename apie kitą valymą po 3 ar 6 mėn.",
@@ -100,7 +100,7 @@ SERVICES = [
          ("Ar reikia būti namuose?", "Taip. Prieš darbus ir po jų kartu apžiūrime langus, kad viskas būtų taip, kaip sutarta."),
          ("Ar galite priminti apie kitą valymą?", "Taip, po valymo pasiūlome priminti po 3 ar 6 mėnesių.")]),
 
-  _svc(slug="balkono-langu-valymas", short="Balkono langų valymas",
+  _svc(slug="balkono-langu-valymas", card_price='~8 € / stiklas', facts=['Stiklai iš abiejų pusių, ir iš lauko', 'Stumdomi ir varstomi rėmai', 'Galima kartu su buto langais – vienas atvykimas'], short="Balkono langų valymas",
     h1="Balkono langų valymas Vilniuje", price_short="~8 € / stiklas",
     title="Balkono langų valymas Vilniuje – ~8 € už stiklą | Įsileisk Saulę",
     desc="Balkonų ir lodžijų stiklų valymas Vilniuje iš abiejų pusių. Stumdomi ir varstomi rėmai, aiški kaina už stiklą, minimali suma 60 €.",
@@ -110,8 +110,7 @@ SERVICES = [
     price_detail="Kaip ir periodinis valymas – vidutiniškai <strong>~8 € už stiklą</strong> iš abiejų pusių, priklausomai nuo dydžio.",
     body="""<h2>Ką atliekame</h2>
 <ul><li>Balkono ir lodžijos stiklų valymą iš vidaus ir iš lauko pusės.</li><li>Stumdomų ir varstomų balkono rėmų stiklus.</li><li>Kartu galime išvalyti ir buto langus – tuomet vienas atvykimas.</li></ul>
-<h2>Kodėl verta patikėti profesionalams</h2>
-<p>Balkono stiklų išorinė pusė dažniausiai sunkiai pasiekiama, o daugiabučiuose – dar ir aukštai. Dirbame su tam pritaikytais įrankiais, todėl nereikia lipti ant turėklų ar persisverti.</p>
+<h2>Verta žinoti</h2>
 <p>Balkonų stiklai greitai pasidengia dulkėmis ir gatvės purvu, o lietaus vanduo ant jų palieka mineralų dėmes. Jei stiklai nevalyti kelerius metus, gali prireikti ir kalkių šalinimo – tai įvertinsime iš nuotraukų.</p>
 <h2>Kaip užsakyti</h2>
 <p>Atsiųskite balkono nuotrauką el. paštu – pasakysime tikslią kainą ir pasiūlysime laiką. Arba paskambinkite ir sužinokite preliminarią kainą iš karto.</p>""",
@@ -119,7 +118,7 @@ SERVICES = [
          ("Kiek kainuoja balkono langų valymas?", "Vidutiniškai ~8 € už stiklą, priklausomai nuo dydžio. Minimali užsakymo suma – 60 €, todėl dažnai verta kartu išsivalyti ir buto langus."),
          ("Ar reikia būti namuose?", "Taip, reikia prieigos prie balkono. Prieš ir po darbų kartu apžiūrime langus.")]),
 
-  _svc(slug="postatybinis-langu-valymas", short="Postatybinis langų valymas",
+  _svc(slug="postatybinis-langu-valymas", card_price='~3× periodinio kainos', facts=['Po remonto, statybų arba jei nevalyta 3+ metus', 'Dažų, tinko, putų, silikono, plėvelių likučiai', 'Kalkių šalinimas neįeina'], short="Postatybinis langų valymas",
     h1="Postatybinis langų valymas", price_short="~3× profilaktinio",
     title="Postatybinis langų valymas Vilniuje po remonto | Įsileisk Saulę",
     desc="Langų valymas po statybų ir remonto Vilniuje: dažų, tinko, silikono, putų ir apsauginių plėvelių likučiai. Taip pat generalinis valymas, jei langai nevalyti 3+ metus.",
@@ -139,7 +138,7 @@ SERVICES = [
          ("Ar kalkių šalinimas įeina?", "Ne, kalkių dėmių šalinimas užsakomas papildomai – 10–30 € už stiklą."),
          ("Ar valote naujos statybos namus ir biurus?", "Taip – ir butus, ir privačius namus, ir komercines patalpas.")]),
 
-  _svc(slug="kalkiu-salinimas-nuo-stiklo", short="Kalkių šalinimas nuo stiklo",
+  _svc(slug="kalkiu-salinimas-nuo-stiklo", card_price='+10–30 € / stiklas', facts=['Pilkos dėmės ir „upeliai“, kurių nenuima valymas', 'Užsakoma kartu su langų valymu', 'Kainą įvertiname iš nuotraukų'], short="Kalkių šalinimas nuo stiklo",
     h1="Kalkių šalinimas nuo langų stiklo", price_short="10–30 € / stiklas",
     title="Kalkių dėmių šalinimas nuo langų stiklo Vilniuje | Įsileisk Saulę",
     desc="Pilkos dėmės ir „upeliai“ ant stiklo, kurių nenuvalo įprastas valymas? Šaliname kieto vandens (kalkių) nuosėdas nuo langų ir stiklinių sienų Vilniuje. 10–30 € už stiklą.",
@@ -157,7 +156,7 @@ SERVICES = [
          ("Ar galima kalkes pašalinti visiškai?", "Dažniausiai – taip. Jei kalkės įsigėrusios labai giliai, prieš darbus apie tai pasakysime atvirai."),
          ("Kaip išvengti kalkių dėmių?", "Valykite langus reguliariai – bent kartą per metus. Po valymo galime priminti apie kitą valymą po 3 ar 6 mėnesių.")]),
 
-  _svc(slug="lipduku-salinimas-nuo-stiklo", short="Lipdukų šalinimas nuo stiklo",
+  _svc(slug="lipduku-salinimas-nuo-stiklo", card_price='Kaina pagal nuotraukas', facts=['Reklaminiai lipdukai, užrašai, plėvelės', 'Nuimame ir klijų likučius', 'Po to stiklą išvalome'], short="Lipdukų šalinimas nuo stiklo",
     h1="Lipdukų ir plėvelių šalinimas nuo stiklo", price_short="Pagal nuotraukas",
     title="Lipdukų ir reklaminių plėvelių šalinimas nuo vitrinų Vilniuje | Įsileisk Saulę",
     desc="Šaliname reklaminius lipdukus, plėveles ir klijų likučius nuo verslo vitrinų ir langų Vilniuje. Stiklas lieka švarus, be klijų dėmių.",
@@ -175,7 +174,7 @@ SERVICES = [
          ("Ar liks klijų dėmės?", "Ne, klijų likučius pašaliname ir stiklą išvalome."),
          ("Ar dirbate su įmonėmis?", "Taip, dirbame su verslu – biurais, kavinėmis, parduotuvėmis ir įstaigomis.")]),
 
-  _svc(slug="vitrinu-ir-biuro-langu-valymas", short="Vitrinų ir biurų langai",
+  _svc(slug="vitrinu-ir-biuro-langu-valymas", card_price='~8 € / stiklas · vitrininis 20 €', facts=['Biurai, kavinės, parduotuvės, įstaigos', 'Nuo 400 m² skaičiuojame kvadratais', 'Galime valyti reguliariai'], short="Vitrinų ir biurų langai",
     h1="Vitrinų ir biuro langų valymas", price_short="~8 € / stiklas",
     title="Vitrinų ir biuro langų valymas Vilniuje verslui | Įsileisk Saulę",
     desc="Biurų, kavinių, parduotuvių vitrinų ir įstaigų langų valymas Vilniuje. Dirbame netrukdydami darbui. Dideli plotai nuo 400 m² skaičiuojami kvadratais.",
@@ -193,7 +192,7 @@ SERVICES = [
          ("Kaip skaičiuojama kaina dideliems objektams?", "Nuo 400 m² stiklo ploto kainą skaičiuojame kvadratais, mažesnius – stiklais."),
          ("Ar galite valyti ne darbo metu?", "Laiką derinkime telefonu – pasistengsime prisitaikyti prie jūsų darbo grafiko.")]),
 
-  _svc(slug="laiptiniu-langu-valymas", short="Laiptinių langų valymas",
+  _svc(slug="laiptiniu-langu-valymas", card_price='Kaina pagal nuotraukas', facts=['Bendrijoms ir administratoriams', 'Visi aukštai per vieną atvykimą', 'Išrašome sąskaitas'], short="Laiptinių langų valymas",
     h1="Daugiabučių laiptinių langų valymas", price_short="Pagal nuotraukas",
     title="Daugiabučių laiptinių langų valymas Vilniuje | Įsileisk Saulę",
     desc="Daugiabučių laiptinių langų valymas Vilniuje bendrijoms ir administratoriams. Kaina pagal nuotraukas, sąskaitos įmonėms.",

@@ -57,6 +57,13 @@ def prices_html():
         for i, r in enumerate(rows))
     return f'<ul class="prices">{lines}</ul><div class="notice">{SITE["notice"]}</div>'
 
+def svc_card(s):
+    """Service card: price and key facts at a glance; the page behind it has the details."""
+    facts = "".join(f"<li>{E(f)}</li>" for f in s["facts"])
+    return (f'<a class="svc" href="/{s["slug"]}/"><h3>{E(s["short"])}</h3>'
+            f'<p class="svc-price">{E(s["card_price"])}</p><ul class="facts">{facts}</ul>'
+            f'<span class="more">Plačiau →</span></a>')
+
 # ---------- JSON-LD ----------
 def business_ld():
     return {
@@ -180,9 +187,7 @@ def build():
     steps = "".join(
         f'<li><img src="/img/icons/{ic}.webp" alt="" width="64" height="64" loading="lazy"><span>{i}. {E(a)} {E(b)}</span></li>'
         for i, ((a, b), ic) in enumerate(zip(SITE["steps"], HOME["process_icons"]), start=1))
-    svc = "".join(
-        f'<a class="svc" href="/{s["slug"]}/"><h3>{E(s["short"])}</h3><p>{E(s["card"])}</p><span class="more">Plačiau →</span></a>'
-        for s in SERVICES)
+    svc = "".join(svc_card(s) for s in SERVICES)
     home = f'''
 <div class="flow">
 <section class="hero s-hero" style="background-image:url(/img/hero-langas.webp)"><div class="wrap">
@@ -252,29 +257,32 @@ def build():
 
     # SERVICE PAGES — same look: pink centred title, teal lead, the two buttons, then details.
     for s in SERVICES:
-        others = "".join(f'<a href="/{o["slug"]}/">{E(o["short"])}</a>' for o in SERVICES if o is not s)
+        others = "".join(svc_card(o) for o in SERVICES if o is not s)
+        facts = "".join(f"<li>{E(f)}</li>" for f in s["facts"])
         body = f'''
-<section class="page-head"><div class="wrap narrow">
+<section class="svc-page"><div class="wrap">
 <p class="crumbs"><a href="/">Pradžia</a> › {E(s["short"])}</p>
 <h1>{E(s["h1"])}</h1>
-<p class="t-teal lead">{E(s["lead"])}</p>
-<p class="hero-tel"><a href="tel:{SITE["phone_e164"]}" data-loc="service_number">{SITE["phone_display"]}</a></p>
-{pair("service_top")}
-</div></section>
-<section><div class="wrap narrow">
-{DIV}
-<div class="price-box"><h2>Kaina</h2><p>{s["price_detail"]}</p><div class="notice">{SITE["notice"]}</div></div>
+<div class="svc-grid">
+<aside class="svc-box">
+<p class="svc-price">{E(s["card_price"])}</p>
+<ul class="facts">{facts}</ul>
+<p class="svc-detail">{s["price_detail"]}</p>
+<div class="notice">{SITE["notice"]}</div>
+<div class="stack"><a class="btn btn-call" href="tel:{SITE["phone_e164"]}" data-loc="service_box">Skambinti {SITE["phone_display"]}</a><a class="btn btn-photo" href="{mail_href()}" data-loc="service_box">Siųsti nuotraukas</a></div>
+</aside>
+<div class="article">
+{s["body"]}
 <figure class="svc-img">{img(s["image"], s["image_alt"])}</figure>
-<div class="article">{s["body"]}</div>
-{pair("service_bottom")}
-</div></section>
-<section><div class="wrap narrow">
-{DIV}
-<h2>Klausimai:</h2>
+<h2>Klausimai</h2>
 {faq_html(s["faq"])}
+</div>
+</div>
+</div></section>
+<section><div class="wrap">
 {DIV}
 <h2>Kitos paslaugos:</h2>
-<p class="other">{others}</p>
+<div class="svcs">{others}</div>
 </div></section>
 '''
         pages.append(page(f'/{s["slug"]}/', s["title"], s["desc"], body,
