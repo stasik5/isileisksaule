@@ -48,7 +48,11 @@ def reviews_html():
     return '<div class="reviews">' + "".join(f'<blockquote><p>{E(t)}</p><cite>{E(who)}</cite></blockquote>' for t,who in REVIEWS) + "</div>"
 
 def gallery_html():
-    return '<div class="gallery">' + "".join(img(f, alt) for f,alt in GALLERY) + "</div>"
+    return '<div class="gallery">' + "".join(img(f, alt, cls="wide" if f.startswith("g-") else "") for f,alt in GALLERY) + "</div>"
+
+FIG_RE = re.compile(r"<!--fig:([^|]+)\|([^|]+)\|(.*?)-->")
+def figs(body):
+    return FIG_RE.sub(lambda m: f'<figure class="svc-img">{img(m[1], m[2])}<figcaption>{m[3]}</figcaption></figure>', body)
 
 def prices_html():
     rows = [r for r in SITE["prices"] if not r[2]]
@@ -305,8 +309,8 @@ def build():
 </div></section>
 <section><div class="wrap narrow">
 {DIV}
-<figure class="svc-img">{img("kalkes-ant-lango.webp", "Kalkių apnašos ant lango stiklo")}<figcaption>Taip atrodo kalkės: pilkšvos apnašos ant stiklo, geriausiai matomos prieš tamsesnį foną (dešinėje, ties šešėliu).</figcaption></figure>
-<div class="article">{KALKES["body"]}</div>
+<figure class="svc-img">{img("kalkiu-upeliai-ant-stiklo.webp", "Kalkių upeliai ant stiklinių balkono turėklų")}<figcaption>Taip atrodo kalkių „upeliai“ ant stiklinių balkono turėklų.</figcaption></figure>
+<div class="article">{figs(KALKES["body"])}</div>
 <div class="notice">{SITE["notice"]}</div>
 {pair("kalkes")}
 </div></section>
