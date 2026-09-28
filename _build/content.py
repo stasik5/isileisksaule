@@ -55,6 +55,7 @@ GALLERY = [
   ("postatybinis-terasos-langu-valymas.webp", "Postatybinis terasos langų valymas"),
   ("svarus-buto-langai.webp", "Buto langai po valymo"),
   ("stiklinio-stogelio-valymas.webp", "Stiklinio stogelio valymas"),
+  ("lipduku-salinimas-pries-ir-po.webp", "Lipdukų šalinimas: prieš ir po"),
 ]
 
 REVIEWS = [

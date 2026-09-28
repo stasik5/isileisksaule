@@ -33,6 +33,12 @@ def wa_link(loc, cls="btn btn-wa", label="Parašyti WhatsApp"):
 def ctas(loc):
     return f'<div class="btns">{tel_link(loc)}{mail_link(loc)}{wa_link(loc)}</div>'
 
+def hero_ctas(loc):
+    # desktop: three buttons; phones: the old site's layout – phone number in text + two side-by-side buttons
+    return (f'<div class="btns desk">{tel_link(loc)}{mail_link(loc)}{wa_link(loc)}</div>'
+            f'<p class="hero-tel mob">Aiški kaina. Geri atsiliepimai.<br><a href="tel:{SITE["phone_e164"]}" data-loc="{loc}_number">{SITE["phone_display"]}</a></p>'
+            f'<div class="pair mob">{mail_link(loc + "_mobile", label="Siųsti nuotraukas")}{tel_link(loc + "_mobile", label="Skambinti")}</div>')
+
 def img(name, alt, w=None, h=None, lazy=True, cls=""):
     from PIL import Image
     p = os.path.join(ROOT, "img", name)
@@ -121,7 +127,7 @@ gtag('js',new Date());gtag('config','{ga}');
 </div>
 <p class="small" style="margin-top:24px;color:#8b9ba0">© {datetime.date.today().year} {E(SITE["legal_name"])}</p>
 </div></footer>
-<div class="bar">{tel_link("mobile_bar", label="Skambinti")}{wa_link("mobile_bar", label="WhatsApp")}</div>
+<a class="fab" href="{SITE["whatsapp"]}" target="_blank" rel="noopener" data-loc="floating" aria-label="Parašyti WhatsApp">{ICON["wa"]}</a>
 <div class="consent" id="consent" role="dialog" aria-label="Slapukai">
 <strong>Slapukai</strong>
 <p style="margin:.4em 0 0">Naudojame analitinius ir reklamos slapukus, kad matytume, kaip lankytojai randa mūsų svetainę, ir tobulintume reklamą. Jūs renkatės. <a href="/privatumo-politika/">Daugiau</a></p>
@@ -156,23 +162,24 @@ def build():
     svc_cards = "".join(f'''<a class="card" href="/{s["slug"]}/"><span class="price-tag">{E(s["price_short"])}</span><h3>{E(s["h1"])}</h3><p>{E(s["card"])}</p><span class="more">Plačiau →</span></a>''' for s in SERVICES)
     steps = "".join(f"<li><strong>{E(a)}</strong> {E(b)}</li>" for a,b in SITE["steps"])
     home = f'''
-<section class="hero"><div class="wrap">
+<div class="flow">
+<section class="hero o1"><div class="wrap">
 <div>
 <h1>Langų valymas Vilniuje</h1>
 <p class="lead">Butų, namų ir verslo langai, balkonai, vitrinos. Aiški kaina už stiklą, savo įranga ir priemonės, po darbų – tvarka. Dirbame nuo {SITE["since"]} m.</p>
-{ctas("hero")}
+{hero_ctas("hero")}
 <ul class="trust"><li><span class="stars">★★★★★</span> 5,0 Google ({SITE["google_reviews"]} atsiliepimai)</li><li>~8 € už stiklą</li><li>Min. užsakymas 60 €</li><li>Vilnius ir Vilniaus r.</li></ul>
 </div>
 {img("biuro-pastato-langai-ir-terasa.webp", "Išvalyti biuro pastato langai Vilniuje", lazy=False)}
 </div></section>
 
-<section id="paslaugos"><div class="wrap">
+<section class="o5" id="paslaugos"><div class="wrap">
 <h2>Ką valome</h2>
 <p class="lead">Dažniausiai užsakomas periodinis butų ir namų langų valymas. Sudėtingesniems darbams – atskiros paslaugos.</p>
 <div class="grid g3">{svc_cards}</div>
 </div></section>
 
-<section class="alt" id="kainos"><div class="wrap">
+<section class="alt o4" id="kainos"><div class="wrap">
 <h2>Kainos</h2>
 <p class="lead">Kaina skaičiuojama už stiklą, valant iš abiejų pusių. Vidutiniškai ~8 € už stiklą – tikslią kainą pasakysime pamatę nuotraukas.</p>
 <table class="prices"><thead><tr><th>Paslauga</th><th>Kaina</th></tr></thead><tbody>{price_rows()}</tbody></table>
@@ -180,7 +187,7 @@ def build():
 {ctas("prices")}
 </div></section>
 
-<section><div class="wrap two">
+<section class="o6"><div class="wrap two">
 <div>
 <h2>Kaip dirbame</h2>
 <ol class="steps">{steps}</ol>
@@ -188,18 +195,18 @@ def build():
 {img("privataus-namo-langu-valymas.webp", "Privataus namo langai po valymo")}
 </div></section>
 
-<section class="alt" id="darbai"><div class="wrap">
+<section class="alt o2" id="darbai"><div class="wrap">
 <h2>Mūsų darbai</h2>
 {gallery_html(GALLERY)}
 </div></section>
 
-<section id="atsiliepimai"><div class="wrap">
+<section class="o3" id="atsiliepimai"><div class="wrap">
 <h2>Atsiliepimai</h2>
 <p class="lead"><span class="stars">★★★★★</span> 5,0 iš {SITE["google_reviews"]} atsiliepimų <a href="{SITE["gbp"]}" target="_blank" rel="noopener">Google</a>. Keletas klientų žodžių:</p>
 <div class="grid g3">{reviews_html()}</div>
 </div></section>
 
-<section class="alt" id="apie"><div class="wrap two">
+<section class="alt o7" id="apie"><div class="wrap two">
 <div>
 <h2>Apie mus</h2>
 <p>Esame nedidelė mandagių specialistų komanda, nuo {SITE["since"]} metų valanti langus Vilniuje ir Vilniaus rajone. Langai ir vitrinos – namų ir verslo „veidas“, todėl dirbame atsakingai ir kruopščiai.</p>
@@ -209,16 +216,17 @@ def build():
 {img("kavines-vitrinu-valymas.webp", "Kavinės vitrinos po valymo")}
 </div></section>
 
-<section><div class="wrap">
+<section class="o8"><div class="wrap">
 <h2>Dažni klausimai</h2>
 {faq_html(FAQ_HOME)}
 </div></section>
 
-<section class="cta"><div class="wrap">
+<section class="cta o9"><div class="wrap">
 <h2>Sužinokite kainą per kelias minutes</h2>
 <p>Paskambinkite – pasakysime preliminarią kainą ir laisvus laikus. Arba atsiųskite langų nuotraukas el. paštu ir gausite tikslią kainą. Trumpam klausimui – parašykite WhatsApp.</p>
 <div class="btns">{tel_link("cta")}{mail_link("cta")}{wa_link("cta")}<a class="btn btn-ghost" href="{SITE["viber"]}" data-loc="cta">Viber</a></div>
 </div></section>
+</div>
 '''
     pages.append(page("/", SITE["home_title"], SITE["home_desc"], home,
         ld=[business_ld(), faq_ld([(q, html.unescape(a)) for q,a in FAQ_HOME])]))
@@ -232,7 +240,7 @@ def build():
 <p class="crumbs"><a href="/">Pradžia</a> › {E(s["short"])}</p>
 <h1>{E(s["h1"])}</h1>
 <p class="lead">{E(s["lead"])}</p>
-{ctas("service_hero")}
+{hero_ctas("service_hero")}
 <ul class="trust"><li>{E(s["price_short"])}</li><li><span class="stars">★★★★★</span> 5,0 Google</li><li>Dirbame nuo {SITE["since"]} m.</li></ul>
 </div>
 {img(s["image"], s["image_alt"], lazy=False)}
