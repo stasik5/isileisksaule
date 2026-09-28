@@ -305,7 +305,7 @@ def build():
 </div></section>
 <section><div class="wrap narrow">
 {DIV}
-<figure class="svc-img">{img("privataus-namo-stiklo-fasadas.webp", "Dideli stiklai, ant kurių dažnai kaupiasi kalkės")}</figure>
+<figure class="svc-img">{img("kalkes-ant-stiklo.webp", "Kalkių dėmės ant lango stiklo")}<figcaption>Taip atrodo kalkės: smulkios pilkšvos dėmės, ypač matomos prieš šviesą. <span class="credit">Nuotr. Feyza Yıldırım / Pexels</span></figcaption></figure>
 <div class="article">{KALKES["body"]}</div>
 <div class="notice">{SITE["notice"]}</div>
 {pair("kalkes")}

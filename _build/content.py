@@ -144,7 +144,7 @@ SERVICES = [
     desc="Pilkos dėmės ir „upeliai“ ant stiklo, kurių nepašalina įprastas valymas? Šaliname kieto vandens (kalkių) nuosėdas nuo langų ir stiklinių sienų Vilniuje. 10–30 € už stiklą.",
     card="Pilkos dėmės ir „upeliai“, kurių nepašalina įprastas valymas.",
     lead="Jei ir išvalius langus matyti pilkų dėmių ar „upelių“ – tai kieto vandens mineralai (kalkės), įsigėrę į stiklo paviršių. Įprastu valymu jų nepašalinsite.",
-    image="privataus-namo-stiklo-fasadas.webp", image_alt="Privataus namo stiklinis fasadas po kalkių šalinimo",
+    image="kalkes-ant-stiklo.webp", image_alt="Kalkių dėmės ant lango stiklo",
     price_detail="<strong>10–30 € už stiklą</strong>, priklausomai nuo to, kiek giliai kalkės įsigėrusios. Ar jų yra, paaiškėja tik atlikus periodinį valymą.",
     body="""<h2>Iš kur atsiranda kalkių dėmės</h2>
 <p>Stiklo paviršius porėtas. Ant jo nuolat patenka lietaus, laistymo ar plovimo vanduo su mineralais. Kaitinant saulei mineralai po truputį įsigeria į stiklą, ir susidaro pilkšvos dėmės, dryžiai ir „upeliai“ po palangėmis.</p>
