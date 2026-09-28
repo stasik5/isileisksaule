@@ -11,6 +11,9 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 # www -> non-www (main domain only)
 RewriteCond %{HTTP_HOST} ^www\.isileisksaule\.lt$ [NC]
 RewriteRule ^ https://isileisksaule.lt%{REQUEST_URI} [L,R=301]
+# Old website-builder template pages: placeholder posts -> tips page, demo shop products -> gone
+RewriteRule ^blog-post[0-9]*/?$ /papildoma-informacija/ [L,R=301]
+RewriteRule ^handmade-[a-z-]+-product/?$ - [G,L]
 # Hide build sources and repo files
 RewriteRule ^(_build|\.git)(/|$) - [R=404,L]
 RewriteRule ^README\.md$ - [R=404,L]
