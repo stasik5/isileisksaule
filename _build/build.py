@@ -167,7 +167,7 @@ gtag('js',new Date());gtag('config','{ga}');
 <div class="fcols">
 <div><h3>Mūsų rekvizitai:</h3><p>{E(SITE["legal_name"])}<br>Įm. k. {SITE["company_code"]}<br>{E(SITE["street"])}, Vilnius</p></div>
 <div><h3>Susisiekite</h3><p><a href="mailto:{SITE["email"]}" data-loc="footer">{SITE["email"]}</a><br><a href="tel:{SITE["phone_e164"]}" data-loc="footer">{SITE["phone_display"]}</a></p></div>
-<div><h3>Darbo laikas</h3><p>Kasdien, be išeiginių<br>{SITE["opens"]}–{SITE["closes"]}<br>Skambinkite ir vakarais</p></div>
+<div><h3>Darbo laikas</h3><p>Skambučiai: kasdien {SITE["opens"]}–{SITE["closes"]}<br>Valome darbo dienomis,<br>laiką suderiname telefonu</p></div>
 </div>
 <nav class="flinks" aria-label="Paslaugos">{services_links}<a href="{KALKES_URL}">Kas yra kalkės?</a><a href="/papildoma-informacija/">Patarimai</a><a href="/privatumo-politika/">Privatumo politika</a><a href="#" data-open-consent>Slapukų nustatymai</a></nav>
 <p class="copy">© {datetime.date.today().year} {E(SITE["legal_name"])}</p>
@@ -279,7 +279,7 @@ def build():
 <p class="svc-detail">{s["price_detail"]}</p>
 <div class="notice">{SITE["notice"]}</div>
 <div class="stack"><a class="btn btn-call" href="tel:{SITE["phone_e164"]}" data-loc="service_box">Skambinti {SITE["phone_display"]}</a><a class="btn btn-photo" href="{mail_href()}" data-loc="service_box">Siųsti nuotraukas</a></div>
-<p class="box-hours">Skambinkite kasdien {SITE["opens"]}–{SITE["closes"]}, be išeiginių</p>
+<p class="box-hours">Skambinti galite kasdien {SITE["opens"]}–{SITE["closes"]}</p>
 </aside>
 <div class="article">
 {s["body"]}
