@@ -116,7 +116,11 @@ body.lb-lock .fab{display:none}
 .reviews cite{font-style:normal;font-weight:500;color:var(--teal-t)}
 .note{text-align:center;font-size:.95rem;color:var(--teal-t)}
 
-.svcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+/* flex (not grid) so a lone card in the last row is centred */
+.svcs{display:flex;flex-wrap:wrap;justify-content:center;gap:20px}
+.svcs>.svc{flex:0 1 100%;min-width:0}
+@media (min-width:640px){.svcs>.svc{flex-basis:calc((100% - 20px)/2)}}
+@media (min-width:960px){.svcs>.svc{flex-basis:calc((100% - 40px)/3)}}
 .svc{display:block;text-align:center;text-decoration:none;padding:22px 20px;border:2px solid var(--line);border-radius:18px;color:var(--ink);transition:border-color .15s}
 .svc:hover{border-color:var(--pink)}
 .svc h3{color:var(--pink-t);font-size:1.35rem;margin-bottom:.4em}
