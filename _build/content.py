@@ -105,7 +105,7 @@ SERVICES = [
          ("Ar reikia būti namuose?", "Taip. Prieš darbus ir po jų kartu apžiūrime langus, kad viskas būtų taip, kaip sutarta."),
          ("Ar galite priminti apie kitą valymą?", "Taip, po valymo pasiūlome priminti po 3 ar 6 mėnesių.")]),
 
-  _svc(slug="balkono-langu-valymas", card_price='~8 € / stiklas', facts=['Stiklai iš vidaus ir iš lauko pusės', 'Stumdomi ir varstomi rėmai', 'Galima kartu su buto langais – vienas atvykimas'], short="Balkono langų valymas",
+  _svc(slug="balkono-langu-valymas", card_price='~8 € / stiklas', facts=['Stiklai iš vidaus ir iš lauko pusės', 'Stumdomi ir varstomi rėmai', 'Galima kartu su buto langais – vienas atvykimas', '-Kalkių šalinimas neįeina'], short="Balkono langų valymas",
     h1="Balkono langų valymas Vilniuje", price_short="~8 € / stiklas",
     title="Balkono langų valymas Vilniuje – ~8 € už stiklą | Įsileisk Saulę",
     desc="Balkonų ir lodžijų stiklų valymas Vilniuje iš abiejų pusių. Stumdomi ir varstomi rėmai, aiški kaina už stiklą, minimali suma 60 €.",
@@ -163,7 +163,7 @@ SERVICES = [
          ("Ar galima kalkes pašalinti visiškai?", "Dažniausiai – taip. Jei kalkės įsigėrusios labai giliai, prieš šalindami apie tai pasakysime atvirai."),
          ("Kaip išvengti kalkių dėmių?", "Valykite langus reguliariai – bent kartą per metus. Po valymo galime priminti apie kitą valymą po 3 ar 6 mėnesių.")]),
 
-  _svc(slug="lipduku-salinimas-nuo-stiklo", card_price='Kaina pagal nuotraukas', facts=['Reklaminiai lipdukai, užrašai, plėvelės', 'Nuimame ir klijų likučius', 'Po to stiklą išvalome'], short="Lipdukų šalinimas nuo stiklo",
+  _svc(slug="lipduku-salinimas-nuo-stiklo", card_price='Kaina pagal nuotraukas', facts=['Reklaminiai lipdukai, užrašai, plėvelės', 'Nuimame ir klijų likučius', 'Po to stiklą išvalome', '-Kalkių šalinimas neįeina'], short="Lipdukų šalinimas nuo stiklo",
     h1="Lipdukų ir plėvelių šalinimas nuo stiklo", price_short="Pagal nuotraukas",
     title="Lipdukų ir reklaminių plėvelių šalinimas nuo vitrinų Vilniuje | Įsileisk Saulę",
     desc="Šaliname reklaminius lipdukus, plėveles ir klijų likučius nuo verslo vitrinų ir langų Vilniuje. Stiklas lieka švarus, be klijų dėmių.",
@@ -181,7 +181,7 @@ SERVICES = [
          ("Ar liks klijų dėmės?", "Ne, klijų likučius pašaliname ir stiklą išvalome."),
          ("Ar dirbate su įmonėmis?", "Taip, dirbame su verslu – biurais, kavinėmis, parduotuvėmis ir įstaigomis.")]),
 
-  _svc(slug="vitrinu-ir-biuro-langu-valymas", card_price='~8 € / stiklas · vitrininis 20 €', facts=['Biurai, kavinės, parduotuvės, įstaigos', 'Nuo 400 m² skaičiuojame kvadratais', 'Galime valyti reguliariai'], short="Vitrinų ir biurų langai",
+  _svc(slug="vitrinu-ir-biuro-langu-valymas", card_price='~8 € / stiklas · vitrininis 20 €', facts=['Biurai, kavinės, parduotuvės, įstaigos', 'Nuo 400 m² skaičiuojame kvadratais', 'Galime valyti reguliariai', '-Kalkių šalinimas neįeina'], short="Vitrinų ir biurų langai",
     h1="Vitrinų ir biuro langų valymas", price_short="~8 € / stiklas",
     title="Vitrinų ir biuro langų valymas Vilniuje verslui | Įsileisk Saulę",
     desc="Biurų, kavinių, parduotuvių vitrinų ir įstaigų langų valymas Vilniuje. Dirbame netrukdydami darbui. Dideli plotai nuo 400 m² skaičiuojami kvadratais.",
@@ -199,7 +199,7 @@ SERVICES = [
          ("Kaip skaičiuojama kaina dideliems objektams?", "Nuo 400 m² stiklo ploto kainą skaičiuojame kvadratais, mažesnius – stiklais."),
          ("Ar galite valyti ne darbo metu?", "Laiką derinkime telefonu – pasistengsime prisitaikyti prie jūsų darbo grafiko.")]),
 
-  _svc(slug="laiptiniu-langu-valymas", card_price='Kaina pagal nuotraukas', facts=['Bendrijoms ir administratoriams', 'Visi aukštai per vieną atvykimą', 'Išrašome sąskaitas'], short="Laiptinių langų valymas",
+  _svc(slug="laiptiniu-langu-valymas", card_price='Kaina pagal nuotraukas', facts=['Bendrijoms ir administratoriams', 'Visi aukštai per vieną atvykimą', 'Išrašome sąskaitas', '-Kalkių šalinimas neįeina'], short="Laiptinių langų valymas",
     h1="Daugiabučių laiptinių langų valymas", price_short="Pagal nuotraukas",
     title="Daugiabučių laiptinių langų valymas Vilniuje | Įsileisk Saulę",
     desc="Daugiabučių laiptinių langų valymas Vilniuje bendrijoms ir administratoriams. Kaina pagal nuotraukas, sąskaitos įmonėms.",
