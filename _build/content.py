@@ -28,6 +28,7 @@ SITE = {
     ("&nbsp;&nbsp;· standartinis virtuvės langas daugiabutyje", "8 €", False),
     ("&nbsp;&nbsp;· platus vitrininis stiklas nuo grindų iki lubų", "20 €", False),
     ("&nbsp;&nbsp;· siauras vonios langelis", "4 €", False),
+    ("Stoglangių (Velux) valymas – pasiekiamame aukštyje", "20 € / vnt.", False),
     ("Postatybinis ir generalinis langų valymas", "~3× periodinio kainos", False),
     ("Lipdukų šalinimas, laiptinių langai", "pagal nuotraukas", False),
     ("Dideli plotai (nuo 400 m²)", "skaičiuojame kvadratais", False),
@@ -47,7 +48,8 @@ SITE = {
 }
 
 GALLERY = [
-  ("g-kalkiu-salinimas-pries-ir-po.webp", "Kalkių šalinimas nuo stiklinių turėklų: prieš ir po"),
+  # wide "g-" tiles span 2 of 3 columns – keep them in rows 1, 2 and 4 so the grid has no gaps
+  ("g-langu-valymas-pries-ir-po.webp", "Langų valymas: prieš ir po"),
   ("biuro-langu-valymas-vilniuje.webp", "Biuro langai po valymo"),
   ("privataus-namo-stiklo-fasadas.webp", "Privataus namo stiklinis fasadas"),
   ("g-balkono-stiklai-pries-ir-po.webp", "Postatybinis balkono stiklų valymas: prieš ir po"),
@@ -55,7 +57,7 @@ GALLERY = [
   ("senamiescio-terasos-stiklai.webp", "Terasos stiklai senamiestyje"),
   ("balkono-langu-valymas-daugiabutyje.webp", "Balkono langai daugiabutyje"),
   ("postatybinis-terasos-langu-valymas.webp", "Postatybinis terasos langų valymas"),
-  ("g-langu-valymas-pries-ir-po.webp", "Langų valymas: prieš ir po"),
+  ("g-kalkiu-salinimas-pries-ir-po.webp", "Kalkių šalinimas nuo stiklinių turėklų: prieš ir po"),
   ("svarus-buto-langai.webp", "Buto langai po valymo"),
   ("stiklinio-stogelio-valymas.webp", "Stiklinio stogelio valymas"),
   ("lipduku-salinimas-pries-ir-po.webp", "Lipdukų šalinimas: prieš ir po"),
@@ -89,7 +91,7 @@ SERVICES = [
     card="Dažniausiai užsakoma paslauga: butų ir namų langai iš abiejų pusių kartą ar du per metus.",
     lead="Įprastas langų valymas butams, namams ir biurams – stiklai iš abiejų pusių. Rekomenduojame valyti bent kartą per metus, o dažniausiai klientai valosi pavasarį ir rudenį.",
     image="langu-valymas-pries-ir-po.webp", image_alt="Langai prieš ir po periodinio valymo",
-    price_detail="Vidutiniškai <strong>~8 € už stiklą</strong> iš abiejų pusių – tiek kainuoja standartinis virtuvės langas daugiabutyje. Platus vitrininis stiklas nuo grindų iki lubų – 20 €.",
+    price_detail="Vidutiniškai <strong>~8 € už stiklą</strong> iš abiejų pusių – tiek kainuoja standartinis virtuvės langas daugiabutyje. Platus vitrininis stiklas nuo grindų iki lubų – 20 €. Stoglangiai (Velux) pasiekiamame aukštyje – 20 € / vnt.",
     body="""<h2>Kas įeina</h2>
 <ul><li>Visų užsakytų langų stiklų valymas iš vidaus ir iš lauko pusės.</li><li>Balkonų ir lodžijų stiklai – jei užsakote kartu.</li><li>Savo įranga ir priemonės – jums nieko nereikia pirkti.</li><li>Po darbų – tvarka: nepaliekame aptaškytų palangių ir grindų.</li></ul>
 <h2>Kaip dažnai valyti langus</h2>

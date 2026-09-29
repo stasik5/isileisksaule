@@ -48,7 +48,10 @@ def reviews_html():
     return '<div class="reviews">' + "".join(f'<blockquote><p>{E(t)}</p><cite>{E(who)}</cite></blockquote>' for t,who in REVIEWS) + "</div>"
 
 def gallery_html():
-    return '<div class="gallery">' + "".join(img(f, alt, cls="wide" if f.startswith("g-") else "") for f,alt in GALLERY) + "</div>"
+    # each tile links to the full image (works without JS); site.js opens it in a full-screen viewer
+    return '<div class="gallery">' + "".join(
+        f'<a href="/img/{f}" class="g-item{" wide" if f.startswith("g-") else ""}" data-lb aria-label="Padidinti: {E(alt)}">{img(f, alt)}</a>'
+        for f,alt in GALLERY) + "</div>"
 
 FIG_RE = re.compile(r"<!--fig:([^|]+)\|([^|]+)\|(.*?)-->")
 def figs(body):
