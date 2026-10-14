@@ -229,3 +229,5 @@ ul.facts li.no::before{content:"–";color:var(--muted);font-weight:800;font-siz
 .area h3{color:var(--pink-t);font-size:1.25rem;margin:0 0 .4em}
 .area ul{list-style:none;margin:0;padding:0}
 .area li{padding:.3em 0;border-bottom:1px solid var(--line);font-size:1.1rem}
+.areas-fee{margin:1em 0;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.area li span{float:right;font-weight:600;color:var(--pink-t)}

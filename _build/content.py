@@ -34,6 +34,7 @@ SITE = {
     ("Dideli plotai (nuo 400 m²)", "skaičiuojame kvadratais", False),
     ("Kalkių šalinimas – <strong>į valymo kainą neįeina</strong>", "+10–30 € / stiklas", True),
     ("Minimali užsakymo suma", "60 €", True),
+    ('Atvykimas 20 km ir toliau nuo Vilniaus centro (<a href="/kur-valome/#rajonas">vietovės</a>)', "1 € / km", False),
   ],
   "notice": "<strong>Svarbu:</strong> minimali užsakymo suma – <strong>60 €</strong>. Kalkių (kieto vandens dėmių) šalinimas į valymo kainą <strong>neįeina</strong> – papildomai <strong>10–30 € už stiklą</strong>.",
   "mail_subject": "Langų valymo kaina",
@@ -78,7 +79,7 @@ FAQ_HOME = [
   ("Kuo skiriasi periodinis ir postatybinis valymas?", "Periodinis (profilaktinis) – įprastas valymas, kai langai valomi bent kartą per metus. Postatybinis ar generalinis reikalingas po remonto arba jei langai nevalyti 3 metus ir ilgiau; jis kainuoja apie 3 kartus daugiau."),
   ("Ar kalkių šalinimas įeina į kainą?", "Ne. Kalkių (kieto vandens dėmių) šalinimas užsakomas papildomai – 10–30 € už stiklą, priklausomai nuo užterštumo. Ar kalkių yra, paaiškėja tik atlikus periodinį valymą."),
   ("Ar reikia pasiruošti prieš valymą?", "Užtenka atlaisvinti priėjimą prie langų: nuimti daiktus ir gėles nuo palangių. Priemones ir įrangą atsivežame patys."),
-  ("Kokiose vietovėse dirbate?", "Vilniuje ir Vilniaus rajone. Valome butų, namų, biurų, kavinių ir įstaigų langus."),
+  ("Kokiose vietovėse dirbate?", "Visame Vilniuje ir Vilniaus rajone. Iki 20 km nuo Vilniaus centro atvykimas nemokamas, toliau – 1 € už kilometrą (pvz., 30 km – 30 €). Valome butų, namų, biurų, kavinių ir įstaigų langus."),
 ]
 
 def _svc(**k): return k
@@ -274,9 +275,9 @@ HOME = {
 # "Kur valome" – service area page. Areas = Vilnius city elderships (seniūnijos), grouped by part of town.
 WHERE = dict(slug="kur-valome",
   h1="Langų valymas visuose Vilniaus mikrorajonuose",
-  title="Langų valymas Vilniaus mikrorajonuose – kur valome | Įsileisk Saulę",
-  desc="Valome langus visame Vilniuje: Šeškinėje, Fabijoniškėse, Pašilaičiuose, Žirmūnuose, Antakalnyje, Pilaitėje ir kituose mikrorajonuose. ~8 € už stiklą, minimali suma 60 €.",
-  lead="Atvykstame į visus Vilniaus miesto mikrorajonus – nuo Senamiesčio iki Pilaitės ir Naujosios Vilnios – su savo įranga ir priemonėmis.",
+  title="Langų valymas Vilniaus mikrorajonuose ir rajone – kur valome | Įsileisk Saulę",
+  desc="Valome langus visame Vilniuje: Šeškinėje, Fabijoniškėse, Pašilaičiuose, Žirmūnuose, Antakalnyje, Pilaitėje ir kituose mikrorajonuose, taip pat Vilniaus rajone. ~8 € už stiklą, minimali suma 60 €.",
+  lead="Atvykstame į visus Vilniaus miesto mikrorajonus – nuo Senamiesčio iki Pilaitės ir Naujosios Vilnios – su savo įranga ir priemonėmis. Valome ir Vilniaus rajone bei apylinkėse.",
   groups=[
     ("Centras", ["Senamiestis", "Naujamiestis", "Žvėrynas", "Šnipiškės", "Rasos"]),
     ("Šiaurė", ["Šeškinė", "Fabijoniškės", "Pašilaičiai", "Justiniškės", "Viršuliškės", "Žirmūnai", "Verkiai (Santariškės, Jeruzalė, Valakampiai)"]),
@@ -292,10 +293,16 @@ WHERE = dict(slug="kur-valome",
 <p>Senamiestyje, Naujamiestyje, Šnipiškėse ir Žirmūnuose valome biurų, kavinių ir parduotuvių langus bei vitrinas (<a href="/vitrinu-ir-biuro-langu-valymas/">vitrinų ir biuro langų valymas</a>), o visame mieste – daugiabučių laiptinių langus bendrijoms ir administratoriams (<a href="/laiptiniu-langu-valymas/">laiptinių langų valymas</a>).</p>
 <h2>Kaina</h2>
 <p>Vidutiniškai <strong>~8 € už stiklą</strong> iš abiejų pusių, minimali užsakymo suma – <strong>60 €</strong>. Visas kainas rasite <a href="/#kainos">kainų skiltyje</a>.</p>
-<h2>Vilniaus rajonas</h2>
-<p>Valome ir Vilniaus rajone – priemiesčių gyvenvietėse. Paskambinkite ir pasakysime, ar atvyksime į jūsų vietovę ir kada.</p>""",
+<h2 id="rajonas">Vilniaus rajonas ir apylinkės</h2>
+<p>Mielai atvykstame ir už miesto ribų. <strong>Iki 20 km nuo Vilniaus centro atvykimas nemokamas</strong> – mokate tik už darbą.</p>
+<p>Jei vietovė nutolusi 20 km ar daugiau, taikomas <strong>atvykimo mokestis – 1 € už kilometrą</strong>: 20 km – 20 €, 30 km – 30 €, 40 km – 40 €. Atstumą skaičiuojame keliu nuo Vilniaus centro (Katedros a.), o tikslią sumą pasakome telefonu dar prieš atvykdami. Atvykimo mokestis pridedamas prie darbų kainos.</p>
+<div class="areas areas-fee">
+<div class="area"><h3>Be atvykimo mokesčio</h3><ul><li>Avižieniai</li><li>Bukiškis</li><li>Riešė</li><li>Rudamina</li><li>Juodšiliai</li><li>Zujūnai</li><li>Mickūnai</li><li>Marijampolis</li></ul></div>
+<div class="area"><h3>Su atvykimo mokesčiu</h3><ul><li>Pagiriai <span>~21 €</span></li><li>Lentvaris <span>~22 €</span></li><li>Bezdonys <span>~22 €</span></li><li>Nemenčinė <span>~24 €</span></li><li>Sudervė <span>~24 €</span></li><li>Lavoriškės <span>~27 €</span></li><li>Maišiagala <span>~27 €</span></li><li>Trakai <span>~28 €</span></li><li>Kalveliai <span>~29 €</span></li><li>Paberžė <span>~31 €</span></li><li>Medininkai <span>~33 €</span></li><li>Vievis <span>~37 €</span></li><li>Elektrėnai <span>~50 €</span></li><li>Širvintos <span>~50 €</span></li></ul></div>
+</div>
+<p>Sumos apytikslės. Jūsų vietovės sąraše nėra? Paskambinkite – pasakysime atstumą ir kainą.</p>""",
   faq=[("Ar atvykstate į mano mikrorajoną?", "Taip – valome visuose Vilniaus miesto mikrorajonuose. Paskambinkite ir pasiūlysime artimiausią laisvą laiką."),
-       ("Ar valote Vilniaus rajone?", "Taip, priemiesčių gyvenvietėse. Dėl atvykimo į konkrečią vietovę sutariame telefonu."),
+       ("Ar valote Vilniaus rajone?", "Taip. Iki 20 km nuo Vilniaus centro atvykimas nemokamas. Toliau taikomas atvykimo mokestis – 1 € už kilometrą (pvz., 30 km – 30 €, 40 km – 40 €), jis pridedamas prie darbų kainos."),
        ("Kiek kainuoja langų valymas?", "Vidutiniškai ~8 € už stiklą iš abiejų pusių. Minimali užsakymo suma – 60 €, kalkių šalinimas – papildomai.")],
 )
 
