@@ -271,6 +271,34 @@ HOME = {
   "reviews_note": "Visus šiuos atsiliepimus ir daugiau galima rasti mūsų skelbiu.lt puslapyje – tada dar neturėjome svetainės :)",
 }
 
+# "Kur valome" – service area page. Areas = Vilnius city elderships (seniūnijos), grouped by part of town.
+WHERE = dict(slug="kur-valome",
+  h1="Langų valymas visuose Vilniaus mikrorajonuose",
+  title="Langų valymas Vilniaus mikrorajonuose – kur valome | Įsileisk Saulę",
+  desc="Valome langus visame Vilniuje: Šeškinėje, Fabijoniškėse, Pašilaičiuose, Žirmūnuose, Antakalnyje, Pilaitėje ir kituose mikrorajonuose. ~8 € už stiklą, minimali suma 60 €.",
+  lead="Atvykstame į visus Vilniaus miesto mikrorajonus – nuo Senamiesčio iki Pilaitės ir Naujosios Vilnios – su savo įranga ir priemonėmis.",
+  groups=[
+    ("Centras", ["Senamiestis", "Naujamiestis", "Žvėrynas", "Šnipiškės", "Rasos"]),
+    ("Šiaurė", ["Šeškinė", "Fabijoniškės", "Pašilaičiai", "Justiniškės", "Viršuliškės", "Žirmūnai", "Verkiai (Santariškės, Jeruzalė, Valakampiai)"]),
+    ("Rytai", ["Antakalnis", "Naujoji Vilnia (Pavilnys)"]),
+    ("Vakarai", ["Karoliniškės", "Lazdynai", "Pilaitė", "Grigiškės"]),
+    ("Pietūs", ["Naujininkai", "Vilkpėdė", "Paneriai"]),
+  ],
+  body="""<h2>Butai daugiabučiuose</h2>
+<p>Šeškinėje, Fabijoniškėse, Pašilaičiuose, Justiniškėse, Karoliniškėse ir kituose daugiabučių mikrorajonuose dažniausiai valome buto langus kartu su įstiklintu balkonu ar lodžija – viskas per vieną atvykimą. Plačiau: <a href="/periodinis-langu-valymas/">periodinis langų valymas</a> ir <a href="/balkono-langu-valymas/">balkono langų valymas</a>.</p>
+<h2>Privatūs namai</h2>
+<p>Valakampiuose, Pavilnyje, Pilaitėje, Antakalnyje ir kituose kvartaluose su individualiais namais dažnai pasitaiko didelių stiklų, vitrininių langų ir stiklinių fasadų. Juos valome iš abiejų pusių, o po statybų ar remonto – nuo dažų, tinko ir putų likučių (<a href="/postatybinis-langu-valymas/">postatybinis langų valymas</a>).</p>
+<h2>Verslas ir laiptinės</h2>
+<p>Senamiestyje, Naujamiestyje, Šnipiškėse ir Žirmūnuose valome biurų, kavinių ir parduotuvių langus bei vitrinas (<a href="/vitrinu-ir-biuro-langu-valymas/">vitrinų ir biuro langų valymas</a>), o visame mieste – daugiabučių laiptinių langus bendrijoms ir administratoriams (<a href="/laiptiniu-langu-valymas/">laiptinių langų valymas</a>).</p>
+<h2>Kaina</h2>
+<p>Vidutiniškai <strong>~8 € už stiklą</strong> iš abiejų pusių, minimali užsakymo suma – <strong>60 €</strong>. Visas kainas rasite <a href="/#kainos">kainų skiltyje</a>.</p>
+<h2>Vilniaus rajonas</h2>
+<p>Valome ir Vilniaus rajone – priemiesčių gyvenvietėse. Paskambinkite ir pasakysime, ar atvyksime į jūsų vietovę ir kada.</p>""",
+  faq=[("Ar atvykstate į mano mikrorajoną?", "Taip – valome visuose Vilniaus miesto mikrorajonuose. Paskambinkite ir pasiūlysime artimiausią laisvą laiką."),
+       ("Ar valote Vilniaus rajone?", "Taip, priemiesčių gyvenvietėse. Dėl atvykimo į konkrečią vietovę sutariame telefonu."),
+       ("Kiek kainuoja langų valymas?", "Vidutiniškai ~8 € už stiklą iš abiejų pusių. Minimali užsakymo suma – 60 €, kalkių šalinimas – papildomai.")],
+)
+
 KALKES = dict(slug="kas-yra-kalkes",
   h1="Kas yra kalkės ant langų ir kodėl jų nepašalina įprastas valymas?",
   title="Kas yra kalkės ant langų ir kodėl jų nepašalina įprastas valymas | Įsileisk Saulę",

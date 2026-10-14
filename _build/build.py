@@ -7,7 +7,7 @@ It writes the HTML pages into the repository root. Commit and push; Hostinger de
 """
 import json, os, re, html, datetime, hashlib
 from urllib.parse import quote
-from content import SITE, SERVICES, REVIEWS, FAQ_HOME, ARTICLES, GALLERY, HOME, KALKES
+from content import SITE, SERVICES, REVIEWS, FAQ_HOME, ARTICLES, GALLERY, HOME, KALKES, WHERE
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE = SITE["url"]  # canonical base, no trailing slash
@@ -172,7 +172,7 @@ gtag('js',new Date());gtag('config','{ga}');
 <div><h3>Susisiekite</h3><p><a href="mailto:{SITE["email"]}" data-loc="footer">{SITE["email"]}</a><br><a href="tel:{SITE["phone_e164"]}" data-loc="footer">{SITE["phone_display"]}</a></p></div>
 <div><h3>Darbo laikas</h3><p>Skambučiai: kasdien {SITE["opens"]}–{SITE["closes"]}<br>Valome darbo dienomis,<br>laiką suderiname telefonu</p></div>
 </div>
-<nav class="flinks" aria-label="Paslaugos">{services_links}<a href="{KALKES_URL}">Kas yra kalkės?</a><a href="/papildoma-informacija/">Patarimai</a><a href="/privatumo-politika/">Privatumo politika</a><a href="#" data-open-consent>Slapukų nustatymai</a></nav>
+<nav class="flinks" aria-label="Paslaugos">{services_links}<a href="/kur-valome/">Kur valome</a><a href="{KALKES_URL}">Kas yra kalkės?</a><a href="/papildoma-informacija/">Patarimai</a><a href="/privatumo-politika/">Privatumo politika</a><a href="#" data-open-consent>Slapukų nustatymai</a></nav>
 <p class="copy">© {datetime.date.today().year} {E(SITE["legal_name"])}</p>
 </div></footer>
 <a class="fab" href="{SITE["whatsapp"]}" target="_blank" rel="noopener" data-loc="floating" aria-label="Parašyti WhatsApp">{ICON["wa"]}</a>
@@ -255,6 +255,7 @@ def build():
 <h2>Apie mus:</h2>
 <p class="t-teal">{E(HOME["about_lead"])}</p>
 {"".join(f"<p>{E(p)}</p>" for p in HOME["about"])}
+<p>Valome visuose Vilniaus mikrorajonuose – <a href="/kur-valome/">žiūrėkite, kur atvykstame</a>.</p>
 {pair("about")}
 </div></section>
 
@@ -304,6 +305,33 @@ def build():
                  "provider":{"@id":BASE+"/#business"},"areaServed":"Vilnius","url":BASE+f'/{s["slug"]}/'},
                 crumbs_ld([("Pradžia","/"),(s["short"],f'/{s["slug"]}/')]),
                 faq_ld(s["faq"])]))
+
+    # KUR VALOME — service area page
+    groups = "".join(f'<div class="area"><h3>{E(g)}</h3><ul>{"".join(f"<li>{E(x)}</li>" for x in xs)}</ul></div>' for g,xs in WHERE["groups"])
+    body = f'''
+<section class="page-head"><div class="wrap narrow">
+<p class="crumbs"><a href="/">Pradžia</a> › Kur valome</p>
+<h1>{E(WHERE["h1"])}</h1>
+<p class="t-teal lead">{E(WHERE["lead"])}</p>
+{pair("where")}
+</div></section>
+<section><div class="wrap">
+{DIV}
+<h2>Mikrorajonai</h2>
+<div class="areas">{groups}</div>
+</div></section>
+<section><div class="wrap narrow">
+{DIV}
+<div class="article">{WHERE["body"]}</div>
+<div class="notice">{SITE["notice"]}</div>
+<h2>Klausimai</h2>
+{faq_html(WHERE["faq"])}
+{pair("where_bottom")}
+</div></section>
+'''
+    w_url = f'/{WHERE["slug"]}/'
+    pages.append(page(w_url, WHERE["title"], WHERE["desc"], body,
+        ld=[business_ld(), crumbs_ld([("Pradžia","/"),("Kur valome",w_url)]), faq_ld(WHERE["faq"])]))
 
     # KALKĖS explainer
     body = f'''
